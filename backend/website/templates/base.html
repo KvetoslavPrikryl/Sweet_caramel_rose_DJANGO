@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    {% include "navbar.html" %}
+    {% if messages %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+
+        
+    {% endblock %}
+    <footer>
+        <div className="footer-container">
+            <div className="cont-left">
+                <div className="location">
+                    <h1>Ikona domu</h1>
+                    <div>
+                        <p>Ulice</p>
+                        <p>Město</p>
+                    </div>
+                </div>
+                <div className="phone">
+                    <h4>
+                        <h1>Ikona tel. číslo</h1>
+                       Tel. číslo
+                    </h4>
+                    <h4>
+                        <h1>Ikona email</h1>
+                       E-mail
+                    </h4>
+                </div>
+            </div>
+            <div className="cont-right" >
+                <h1>Google mapa</h1>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form method="POST" action="{%url 'home' %}" >
+        {% csrf_token %}
+        <input type="text" placeholder="Jméno" name="username" required>
+        <br/>
+        <input type="password" placeholder="Heslo" name="password" required>
+        <br/>
+        <button>Přihlásit</button>
+    </form>
+
+{% endblock  %}
