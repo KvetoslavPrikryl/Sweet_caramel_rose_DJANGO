@@ -2,7 +2,13 @@
 
 {% block content %}
 
-    <form method="POST" action="{%url 'home' %}" >
+    {% if user.is_authenticated %}
+
+    <h1>Výtej uživateli</h1>
+
+    {% else %}
+
+    <form method="POST" action="{% url 'home' %}" >
         {% csrf_token %}
         <input type="text" placeholder="Jméno" name="username" required>
         <br/>
@@ -10,5 +16,7 @@
         <br/>
         <button>Přihlásit</button>
     </form>
+
+    {% endif%}
 
 {% endblock  %}

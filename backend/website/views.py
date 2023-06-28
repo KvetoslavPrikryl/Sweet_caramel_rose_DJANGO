@@ -11,7 +11,7 @@ def home(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, f"Jsi přihlášen {username}")
+            messages.success(request, f"Jsi přihlášen.")
             return redirect("home")
         else :
             messages.success(request, "Nesprávné jméno nebo heslo.")
@@ -19,8 +19,7 @@ def home(request):
     else: 
         return render(request, "home.html", {})
 
-def login(request):
-    return render(request)
-
-def logout(request):
-    return render(request)
+def logout_user(request):
+    logout(request)
+    messages.success(request, "Byl jsi odhlášen")
+    return redirect("home")
