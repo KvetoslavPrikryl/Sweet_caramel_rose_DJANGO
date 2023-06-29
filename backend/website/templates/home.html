@@ -2,9 +2,19 @@
 
 {% block content %}
 
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated%}
+        <h1>Výtej uživateli</h1>
+    {% endif %}
 
-    <h1>Výtej uživateli</h1>
+    <div class="user_block">
+        {%for user in user_list%}
+            <h2>{{user.name}}</h2>
+            <p>{{user.body}}</p>
+            <img src="{{user.image.url}}" width="200">
+        {% endfor%}
+    </div>
+
+    {% if user.is_authenticated %}
 
     {% else %}
 
@@ -17,6 +27,6 @@
         <button>Přihlásit</button>
     </form>
 
-    {% endif%}
+    {% endif %}
 
 {% endblock  %}
