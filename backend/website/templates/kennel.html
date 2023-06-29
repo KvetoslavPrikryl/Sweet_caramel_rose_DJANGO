@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div>
+        {% for dog in dogs %}
+            <h2>{{dog.name}}</h2>
+            <p>{{dog.link}}</p>
+            <p>{{dog.body}}</p>
+            <img src="{{dog.image1.url}}" width="200">
+            <img src="{{dog.image2.url}}" width="200">
+            <img src="{{dog.image3.url}}" width="200">
+        {% endfor %}
+    </div>
+
+{% endblock  %}

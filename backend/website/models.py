@@ -7,3 +7,14 @@ class User(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.body} {self.image}"
+    
+class Dog(models.Model):
+    name = models.CharField(max_length=20)
+    link = models.TextField(null=True, blank=True)
+    body = models.TextField(null=True, blank=True)
+    image1 = models.ImageField(null=True, blank=True, upload_to="images/")
+    image2 = models.ImageField(null=True, blank=True, upload_to="images/")
+    image3 = models.ImageField(null=True, blank=True, upload_to="images/")
+
+    def __str__(self):
+        return f"{self.name} {self.link} {self.body} {self.image1} {self.image2} {self.image3}"

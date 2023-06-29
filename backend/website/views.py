@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
-from .models import User
+from .models import User, Dog
 
 def home(request):
     user_list = User.objects.all()
@@ -27,3 +27,9 @@ def logout_user(request):
     logout(request)
     messages.success(request, "Byl jsi odhlášen")
     return redirect("home")
+
+def kennel(request):
+    dogs = Dog.objects.all()
+    return render(request, "kennel.html", {
+        "dogs": dogs
+    })
