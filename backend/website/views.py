@@ -34,8 +34,21 @@ def kennel(request):
     dogs = Dog.objects.all()
     form = DogForm
     submitted = False
+    dog_man = []
+    dog_women = []
+    puppy = []
+    some_dogs = []
+    for dog in dogs:
+        if dog.dog_sex == "pes":
+            dog_man.append(dog)
+        elif dog.dog_sex == "fena":
+            dog_women.append(dog)
+        elif dog.dog_sex == "štěně":
+            puppy.append(dog)
+        else:
+            print(f"Nepodařilo se přidat tyto psy: {some_dogs}")
     if request.method == "POST":
-        formular = DogForm(request.POST)
+        formular = DogForm(request.POST, request.FILES)
         if formular.is_valid:
             formular.save()
             return HttpResponseRedirect("/chovatelska_stanice?submitted=True")
@@ -44,7 +57,9 @@ def kennel(request):
         if "submitted" in request.GET:
             submitted = True
     return render(request, "kennel.html", {
-        "dogs": dogs,
+        "dog_man" : dog_man,
+        "dog_women" : dog_women,
+        "puppy" : puppy,
         "form": form,
         "submitted": submitted 
     })

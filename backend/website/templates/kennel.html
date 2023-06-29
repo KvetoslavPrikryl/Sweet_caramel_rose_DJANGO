@@ -3,16 +3,36 @@
 {% block content %}
 
     <div>
-        {% for dog in dogs %}
+        {% for dog in dog_man %}
             <h2>{{dog.name}}</h2>
             <p>{{dog.link}}</p>
             <p>{{dog.body}}</p>
+            <img src="{{dog.image1.url}}" width="200">
+            <img src="{{dog.image2.url}}" width="200">
+            <img src="{{dog.image3.url}}" width="200">
 
+        {% endfor %}
+
+        {% for dog in dog_women %}
+            <h2>{{dog.name}}</h2>
+            <p>{{dog.link}}</p>
+            <p>{{dog.body}}</p>
+            <img src="{{dog.image1.url}}" width="200">
+            <img src="{{dog.image2.url}}" width="200">
+            <img src="{{dog.image3.url}}" width="200">
+        {% endfor %}
+        {% for dog in puppy %}
+            <h2>{{dog.name}}</h2>
+            <p>{{dog.link}}</p>
+            <p>{{dog.body}}</p>
+            <img src="{{dog.image1.url}}" width="200">
+            <img src="{{dog.image2.url}}" width="200">
+            <img src="{{dog.image3.url}}" width="200">
         {% endfor %}
     </div>
 
     {% if user.is_authenticated %}
-        <form action="{% url 'kennel' %}" method="POST">
+        <form action="{% url 'kennel' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <h3>Name:</h3> {{form.name}}<br>
             <h3>Odkaz:</h3>{{form.link}}<br>
