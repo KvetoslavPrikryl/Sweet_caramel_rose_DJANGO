@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
-from .models import User, Dog
-from .form import DogForm
+from .models import User, Dog, Service
+from .form import DogForm, ServiceForm
 from django.http import HttpResponseRedirect
 
 def home(request):
@@ -62,4 +62,22 @@ def kennel(request):
         "puppy" : puppy,
         "form": form,
         "submitted": submitted 
+    })
+
+def service(request):
+    services = Service.objects.all()
+    form = ServiceForm
+    submitted = False
+    if request.method == "POST":
+        formular = ServiceForm(request.POST)
+        if formular.is_valid:
+            formular.save()
+            return HttpResponseRedirect("/sluzby?submitted=True")
+    else:
+        formular = ServiceForm
+        if "submitted" in request.GET:
+            submitted = True
+    return render(request, "service.html", {
+        "services": services,
+        "form" : form,
     })

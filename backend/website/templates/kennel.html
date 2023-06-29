@@ -34,13 +34,13 @@
     {% if user.is_authenticated %}
         <form action="{% url 'kennel' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <h3>Name:</h3> {{form.name}}<br>
-            <h3>Odkaz:</h3>{{form.link}}<br>
-            <h3>Text:</h3>{{form.body}}<br>
+            <h3>Name:</h3> {{form.name}}<br/>
+            <h3>Odkaz:</h3>{{form.link}}<br/>
+            <h3>Text:</h3>{{form.body}}<br/>
             <h3>Pohlaví psa:</h3>{{form.dog_sex}}
-            <h3>Fotka1:</h3>{{form.image1}}<br>
-            <h3>Fotka2:</h3>{{form.image2}}<br>
-            <h3>Fotka3:</h3>{{form.image3}}<br>
+            <h3>Fotka1:</h3>{{form.image1}}<br/>
+            <h3>Fotka2:</h3>{{form.image2}}<br/>
+            <h3>Fotka3:</h3>{{form.image3}}<br/>
             <input type="submit" value="Uložit" class="">
         </form>
     {% endif %}

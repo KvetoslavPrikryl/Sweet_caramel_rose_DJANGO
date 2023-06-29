@@ -19,3 +19,9 @@ class Dog(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.link} {self.body} {self.dog_sex} {self.image1} {self.image2} {self.image3}"
+    
+class Service(models.Model):
+    name = models.CharField(max_length=20)
+    price = models.IntegerField(null=True, blank=True)
+
+

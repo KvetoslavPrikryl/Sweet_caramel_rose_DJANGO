@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for service in services %}
+        <h2>{{service.name}}</h2>
+        <p>{{service.price}}</p>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <form action="{% url 'service' %}" method="POST">
+            {% csrf_token %}
+            <h3>Name:</h3> {{form.name}}<br/>
+            <h3>Cena:</h3> {{form.price}}<br/>
+            <input type="submit" value="Uložit" class="">
+        </form>
+    {% endif %}
+
+{% endblock  %}
