@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from .models import User, Dog
+from .form import DogForm
+from django.http import HttpResponseRedirect
 
 def home(request):
     user_list = User.objects.all()
@@ -30,6 +32,19 @@ def logout_user(request):
 
 def kennel(request):
     dogs = Dog.objects.all()
+    form = DogForm
+    submitted = False
+    if request.method == "POST":
+        formular = DogForm(request.POST)
+        if formular.is_valid:
+            formular.save()
+            return HttpResponseRedirect("/chovatelska_stanice?submitted=True")
+    else:
+        formular = DogForm
+        if "submitted" in request.GET:
+            submitted = True
     return render(request, "kennel.html", {
-        "dogs": dogs
+        "dogs": dogs,
+        "form": form,
+        "submitted": submitted 
     })
