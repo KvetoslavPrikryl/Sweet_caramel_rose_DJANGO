@@ -12,7 +12,7 @@ class ServiceForm(ModelForm):
         model = Service
         fields = "__all__"
 
-class GaleryForm(ModelForm):
+class GalleryForm(ModelForm):
     class Meta:
         model = Galery
         fields = "__all__"

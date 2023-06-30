@@ -9,5 +9,5 @@ urlpatterns = [
     path("chovatelska_stanice/<str:pk>", views.dog, name="update"),
     path("delete_dog/<str:pk>", views.delete_dog, name="delete-dog"),
     path("delete_service/<str:pk>", views.delete_service, name="delete-service"),
-    path("galerie", views.galery, name="galery"),
+    path("galerie", views.galery, name="gallery"),
 ]

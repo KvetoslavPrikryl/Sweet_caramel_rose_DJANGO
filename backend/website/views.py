@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from .models import User, Dog, Service, Galery
-from .form import DogForm, ServiceForm, GaleryForm
+from .form import DogForm, ServiceForm, GalleryForm
 from django.http import HttpResponseRedirect
 
 def home(request):
@@ -95,20 +95,20 @@ def dog(request, pk):
         })
 
 def galery(request):
-    form = GaleryForm
+    form = GalleryForm
     galery = Galery.objects.all()
     services = Service.objects.all()
     submitted = False
     if request.method == "POST":
-        form = GaleryForm(request.POST, request.FILES)
+        form = GalleryForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("galery")
+            return redirect("gallery")
         else:
-            form = ServiceForm
+            form = GalleryForm
             if "submitted" in request.GET:
                 submitted = True
-    return render(request, "galery.html", {
+    return render(request, "gallery.html", {
         "form" : form,
         "galery" : galery,
         "services" : services
