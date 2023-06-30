@@ -7,14 +7,14 @@
     <title></title>
 </head>
 <body>
-        {% if user.is_authenticated %}
+    {% if user.is_authenticated %}
         <header>
             <h1>Jsi přihlášen </h1>
             <a href="{% url 'logout'%}">Odhlásit</a>
         </header>
-        {% endif %}
+    {% endif %}
+
     
-    {% include "navbar.html" %}
     {% if messages %}
         {% for message in messages %}
             {{message}}

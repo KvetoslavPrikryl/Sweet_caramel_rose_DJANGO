@@ -10,7 +10,7 @@ class User(models.Model):
     
 class Dog(models.Model):
     name = models.CharField(max_length=20)
-    link = models.TextField(null=True, blank=True)
+    link = models.URLField(null=True, blank=True)
     body = models.TextField(null=True, blank=True)
     dog_sex = models.CharField(null=True, max_length=6)
     image1 = models.ImageField(null=True, blank=True, upload_to="images/")
@@ -23,5 +23,10 @@ class Dog(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=20)
     price = models.IntegerField(null=True, blank=True)
+
+class Galery(models.Model):
+    image = models.ImageField(upload_to="galery/")
+    text = models.CharField(max_length=200)
+    service = models.CharField(max_length=20)
 
 

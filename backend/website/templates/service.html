@@ -16,4 +16,10 @@
         </form>
     {% endif %}
 
+    <h2>Galerie</h2>
+    {% for trim in trimrovani %}
+        <img src="{{trim.image.url}}" width="200">
+        <p>{{trim.text}}</p>
+    {% endfor %}
+
 {% endblock  %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
-from .models import User, Dog, Service
+from .models import User, Dog, Service, Galery
 from .form import DogForm, ServiceForm
 from django.http import HttpResponseRedirect
 
@@ -67,6 +67,11 @@ def kennel(request):
 def service(request):
     services = Service.objects.all()
     form = ServiceForm
+    galery = Galery.objects.all()
+    trimrovani = []
+    for image in galery:
+        if image.service == "Trimrování":
+            trimrovani.append(image)
     submitted = False
     if request.method == "POST":
         formular = ServiceForm(request.POST)
@@ -80,4 +85,5 @@ def service(request):
     return render(request, "service.html", {
         "services": services,
         "form" : form,
+        "trimrovani" : trimrovani,
     })
