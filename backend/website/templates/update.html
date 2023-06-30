@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <form method="POST">
+            {% csrf_token%}
+            {{ form.as_p }}
+            <input type="submit" value="Uložit" class="">
+        </form>
+        
+
+    {% else %}
+    <h1>Nejste Přihlášení! </h1>
+    <a href="{% url 'home' %}">Přejít na Hlavní stránku</a>
+
+    {% endif %}
+
+{% endblock  %}

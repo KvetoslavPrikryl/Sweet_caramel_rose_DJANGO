@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from .models import User, Dog, Service, Galery
-from .form import DogForm, ServiceForm
+from .form import DogForm, ServiceForm 
 from django.http import HttpResponseRedirect
 
 def home(request):
@@ -49,7 +49,7 @@ def kennel(request):
             print(f"Nepodařilo se přidat tyto psy: {some_dogs}")
     if request.method == "POST":
         formular = DogForm(request.POST, request.FILES)
-        if formular.is_valid:
+        if formular.is_valid():
             formular.save()
             return HttpResponseRedirect("/chovatelska_stanice?submitted=True")
     else:
@@ -75,7 +75,7 @@ def service(request):
     submitted = False
     if request.method == "POST":
         formular = ServiceForm(request.POST)
-        if formular.is_valid:
+        if formular.is_valid():
             formular.save()
             return HttpResponseRedirect("/sluzby?submitted=True")
     else:
@@ -87,3 +87,13 @@ def service(request):
         "form" : form,
         "trimrovani" : trimrovani,
     })
+
+def dog(request, pk):
+    dog = Dog.objects.get(pk=pk)
+    form = DogForm(request.POST or None, instance=dog)
+    if form.is_valid():
+        form.save()
+        return redirect("kennel")
+    return render(request, "update.html", {
+        "form": form
+        })

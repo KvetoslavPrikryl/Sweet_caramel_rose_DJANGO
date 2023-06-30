@@ -2,10 +2,6 @@
 
 {% block content %}
 
-    {% if user.is_authenticated %}
-        <h1>Výtej uživateli</h1>
-    {% endif %}
-
     <div class="user_block">
         {%for user in user_list%}
             <h2>{{user.name}}</h2>
