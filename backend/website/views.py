@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from .models import User, Dog, Service, Galery
-from .form import DogForm, ServiceForm 
+from .form import DogForm, ServiceForm, GaleryForm
 from django.http import HttpResponseRedirect
 
 def home(request):
@@ -68,10 +68,6 @@ def service(request):
     services = Service.objects.all()
     form = ServiceForm
     galery = Galery.objects.all()
-    trimrovani = []
-    for image in galery:
-        if image.service == "Trimrování":
-            trimrovani.append(image)
     submitted = False
     if request.method == "POST":
         formular = ServiceForm(request.POST)
@@ -85,7 +81,7 @@ def service(request):
     return render(request, "service.html", {
         "services": services,
         "form" : form,
-        "trimrovani" : trimrovani,
+        "galery" : galery,
     })
 
 def dog(request, pk):
@@ -97,3 +93,39 @@ def dog(request, pk):
     return render(request, "update.html", {
         "form": form
         })
+
+def galery(request):
+    form = GaleryForm
+    galery = Galery.objects.all()
+    services = Service.objects.all()
+    submitted = False
+    if request.method == "POST":
+        form = GaleryForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("galery")
+        else:
+            form = ServiceForm
+            if "submitted" in request.GET:
+                submitted = True
+    return render(request, "galery.html", {
+        "form" : form,
+        "galery" : galery,
+        "services" : services
+    })
+
+
+def delete_dog(request, pk):
+    dog = Dog.objects.get(pk=pk)
+    dog.delete()
+    return redirect("kennel")
+
+def delete_service(request, pk):
+    service = Service.objects.get(pk=pk)
+    service.delete()
+    return redirect("service")
+
+def delete_img(request, pk):
+    image = Galery.objects.get(pk=pk)
+    image.delete()
+    return redirect("service")

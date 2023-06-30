@@ -5,6 +5,10 @@
     {% for service in services %}
         <h2>{{service.name}}</h2>
         <p>{{service.price}}</p>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'delete-service' service.id %}">Odstranit</a>
+        {% endif %}
     {% endfor %}
 
     {% if user.is_authenticated %}
@@ -17,9 +21,18 @@
     {% endif %}
 
     <h2>Galerie</h2>
-    {% for trim in trimrovani %}
-        <img src="{{trim.image.url}}" width="200">
-        <p>{{trim.text}}</p>
+    {% for service in services %}
+        <h2>{{service.name}}</h2>
+        {% for image in galery %}
+            {% if image.service == service.name %}
+                <img src="{{ image.image.url }}" width="200"><br/>
+                {{image.text}} 
+            {% endif %}
+        {% endfor %}
     {% endfor %}
+    <br/>
+    {% if user.is_authenticated %}
+        <a href="{% url 'galery' %}">Vytvořit galerii</a>
+    {% endif %}
 
 {% endblock  %}

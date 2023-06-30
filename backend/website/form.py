@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Dog, Service
+from .models import Dog, Service, Galery
 
 class DogForm(ModelForm):
     class Meta:
@@ -10,5 +10,10 @@ class DogForm(ModelForm):
 class ServiceForm(ModelForm):
     class Meta:
         model = Service
+        fields = "__all__"
+
+class GaleryForm(ModelForm):
+    class Meta:
+        model = Galery
         fields = "__all__"
 
