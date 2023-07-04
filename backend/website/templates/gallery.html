@@ -1,9 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
   {% if user.is_authenticated %}
-
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h3>Obrázek:</h3> {{form.image}}
+      <h3>Text k obrázku:</h3> {{form.text}}
+      <h3>Přidat ke službě:</h3> {{form.service}}
+      <input type="submit" value="Uložit" class="">
+    </form>
     
     {% for service in services %}
         <h2>{{service.name}}</h2>
@@ -15,13 +22,7 @@
     {% endfor %}
 
 
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <h3>Obrázek:</h3> {{form.image}}
-        <h3>Text k obrázku:</h3> {{form.text}}
-        <h3>Přidat ke službě:</h3> {{form.service}}
-        <input type="submit" value="Uložit" class="">
-    </form>
+
   {% else %}
     <h1>Nejste přihlášen!</h1>
     <a href="{% url 'home' %}">Hlavní stránka</a>

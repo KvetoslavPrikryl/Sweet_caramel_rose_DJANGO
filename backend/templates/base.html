@@ -1,29 +1,45 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <link rel="stylesheet", href="{% static 'Styles/main.css' %}">
+
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    {% if user.is_authenticated %}
-        <header>
-            <h1>Jsi přihlášen </h1>
-            <a href="{% url 'logout'%}">Odhlásit</a>
-        </header>
-    {% endif %}
+    <main>
+        {% if user.is_authenticated %}
+            <header>
+                <h1>Jsi přihlášen </h1>
+                <a href="{% url 'logout'%}">Odhlásit</a>
+            </header>
+        {% endif %}
+
+        <nav>
+            <ul>
+                <li><a class="btn" href="{% url 'home' %}">Domů</a></li>
+                <li><a class="btn" href="{% url 'kennel' %}">Chovatelská stanice</a></li>
+                <li><a class="btn" href="{% url 'service' %}">Služby</a></li>
+                <li><a class="btn" href="contact.html">Kontakt</a></li>
+            </ul>
+        </nav>
 
     
-    {% if messages %}
-        {% for message in messages %}
-            {{message}}
-        {% endfor %}
-    {% endif %}
-    {% block content %}
+        {% if messages %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% endif %}
+        {% block content %}
 
         
-    {% endblock %}
+        {% endblock %}
+    </main>
+    
     <footer>
         <div className="footer-container">
             <div className="cont-left">
