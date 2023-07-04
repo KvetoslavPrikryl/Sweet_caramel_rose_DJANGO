@@ -6,34 +6,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet", href="{% static 'Styles/main.css' %}">
+    <link rel="stylesheet", href="{% static 'Styles/base.css' %}">
 
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+        <header>
+            <h3 class="admin_user">Jsi přihlášena </h3>
+            <a class="logout" href="{% url 'logout'%}">Odhlásit</a>
+        </header>
+    {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+{% endif %}
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'home' %}"><button class="btn">Domů</button></a></li>
+            <li><a href="{% url 'kennel' %}"><button class="btn">Chovatelská stanice</button></a></li>
+            <li><a href="{% url 'service' %}"><button class="btn">Služby</button></a></li>
+            <li><a href="{% url 'contact' %}"><button class="btn">Kontakt</button></a></li>
+        </ul>
+    </nav>
     <main>
-        {% if user.is_authenticated %}
-            <header>
-                <h1>Jsi přihlášen </h1>
-                <a href="{% url 'logout'%}">Odhlásit</a>
-            </header>
-        {% endif %}
 
-        <nav>
-            <ul>
-                <li><a class="btn" href="{% url 'home' %}">Domů</a></li>
-                <li><a class="btn" href="{% url 'kennel' %}">Chovatelská stanice</a></li>
-                <li><a class="btn" href="{% url 'service' %}">Služby</a></li>
-                <li><a class="btn" href="contact.html">Kontakt</a></li>
-            </ul>
-        </nav>
-
-    
-        {% if messages %}
-            {% for message in messages %}
-                {{message}}
-            {% endfor %}
-        {% endif %}
         {% block content %}
 
         
@@ -41,28 +39,25 @@
     </main>
     
     <footer>
-        <div className="footer-container">
-            <div className="cont-left">
-                <div className="location">
-                    <h1>Ikona domu</h1>
+
+        <div class="footer-container">
+            <div class="cont-left">
                     <div>
                         <p>Ulice</p>
                         <p>Město</p>
                     </div>
-                </div>
-                <div className="phone">
+                <div class="phone">
                     <h4>
-                        <h1>Ikona tel. číslo</h1>
                        Tel. číslo
                     </h4>
                     <h4>
-                        <h1>Ikona email</h1>
                        E-mail
                     </h4>
                 </div>
             </div>
-            <div className="cont-right" >
+            <div class="cont-right" >
                 <h1>Google mapa</h1>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21621.537223387673!2d14.625712138800838!3d50.25455388350216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470be558d1a7c679%3A0x8f2a2ea6a322f2db!2zMjc3IDE0IETFmcOtc3k!5e0!3m2!1scs!2scz!4v1688471648820!5m2!1scs!2scz" class="google_map" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </footer>

@@ -129,3 +129,6 @@ def delete_img(request, pk):
     image = Galery.objects.get(pk=pk)
     image.delete()
     return redirect("service")
+
+def contact(request):
+    return render(request, "contact.html", {})
