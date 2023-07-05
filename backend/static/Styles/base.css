@@ -2,6 +2,11 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-image: url("../IMG/Dog1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
 }
 a{
     text-decoration: none;
@@ -9,20 +14,25 @@ a{
 ul{
     list-style-type: none;
   }
-
+h1, h2, h3, h4, h5{
+    color:rgba(231,110,46,255) ;
+}
 /* Header */
 header{
+    width: 100%;
     padding: 5px 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background: rgba(78, 77, 77, 0.9);
     color: white;
+    position: fixed;
 }
 .admin_user{
     margin: 0;
 }
 .logout{
     text-align: right;
+    padding-right: 50px;
     color: white;
 }
 
@@ -30,11 +40,19 @@ header{
 
 .navbar{
     position:absolute;
-    top: 100px;
+    top: 25%;
     width: 20%;
     position: fixed;
 }
-
+.hamburger{
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    position: fixed;
+    background: white;
+    z-index: 100;
+}
 .btn{
     width: 150px;
     height: 50px;
@@ -51,14 +69,15 @@ header{
 /* Main */
 
 main{
-    width: 80%;
+    width: 85%;
     float: right;
+    margin: 50px 0;
 }
 
 /* Footer */
 
 .footer-container{
-    background: rgba(78, 77, 77, 0.9);
+    background: rgb(0, 0, 0);
     color: rgba(231,110,46,255);
     width:100%;
     display: grid;
@@ -70,7 +89,7 @@ main{
     max-width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 1rem 3rem;
+    padding: 5rem 3rem 1rem 3rem;
 }
 .footer-container .cont-right{
     max-width: 100%;
@@ -87,7 +106,20 @@ main{
 }
 
 /* Response */
+@media screen and (max-width:1400px){
+    main{
+        width: 100%;
+    }
 
+}
+@media screen and (max-width:1000px){
+    .nav{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+    }
+}
 @media screen and (max-width:640px) {
     .footer-container{
         grid-template-columns: 1fr;
@@ -95,5 +127,8 @@ main{
     .google_map{
         width: 300px;
         height: 250px;
+    }
+    main{
+        margin-top: 150px;
     }
 }

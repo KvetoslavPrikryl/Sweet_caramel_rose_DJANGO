@@ -10,5 +10,6 @@ urlpatterns = [
     path("delete_dog/<str:pk>", views.delete_dog, name="delete-dog"),
     path("delete_service/<str:pk>", views.delete_service, name="delete-service"),
     path("galerie", views.galery, name="gallery"),
+    path("gallery/<str:pk>", views.delete_img, name="delete-img"),
     path("kontakt", views.contact, name="contact")
 ]

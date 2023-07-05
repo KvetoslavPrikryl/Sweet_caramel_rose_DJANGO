@@ -1,39 +1,61 @@
 {% extends "base.html" %}
 {% load static %}
+{% block styling %}
+    <link rel="stylesheet", href="{% static 'Styles/service.css' %}">
+{% endblock %}
 
 {% block content %}
+    <div class="container">
+        <section class="headline">
+            <h1 class="h1-headline">U sladké růže</h1>
+            <h2 class="h2-headline">Péče o zvířata</h2>
+        </section>
+        <section class="services">
+            {% for service in services %}
+                <div class="one-service">
+                    <h2 class="service-name">{{service.name}}</h2>
+                    <p class="price">Od {{service.price}} Kč</p>
 
-    {% for service in services %}
-        <h2>{{service.name}}</h2>
-        <p>{{service.price}}</p>
-
-        {% if user.is_authenticated %}
-            <a href="{% url 'delete-service' service.id %}">Odstranit</a>
-        {% endif %}
-    {% endfor %}
-
-    {% if user.is_authenticated %}
-        <form action="{% url 'service' %}" method="POST">
-            {% csrf_token %}
-            <h3>Name:</h3> {{form.name}}<br/>
-            <h3>Cena:</h3> {{form.price}}<br/>
-            <input type="submit" value="Uložit" class="">
-        </form>
-    {% endif %}
-
-    <h2>Galerie</h2>
-    {% for service in services %}
-        <h2>{{service.name}}</h2>
-        {% for image in galery %}
-            {% if image.service == service.name %}
-                <img src="{{ image.image.url }}" width="200"><br/>
-                {{image.text}} 
+                    {% if user.is_authenticated %}
+                        <button class="delete-service"><a href="{% url 'delete-service' service.id %}" >Odstranit</a></button>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% if user.is_authenticated %}
+                <form action="{% url 'service' %}" method="POST" class="service-form">
+                    {% csrf_token %}
+                    <h3>Nézev:</h3> {{form.name}}<br/>
+                    <h3>Cena:</h3> {{form.price}}<br/>
+                    <input type="submit" value="Uložit" class="btn service-form-button">
+                </form>
             {% endif %}
-        {% endfor %}
-    {% endfor %}
-    <br/>
-    {% if user.is_authenticated %}
-        <a href="{% url 'gallery' %}">Vytvořit galerii</a>
-    {% endif %}
+        </section>
 
+        <h2 class="gallery-headline">Galerie</h2>
+        <div class="create-gallery">
+            {% if user.is_authenticated %}
+                    <button><a href="{% url 'gallery' %}">Vytvořit galerii</a></button>
+            {% endif %}
+        </div>
+        <section class="gallery">
+            {% for service in services %}
+                <h2>{{service.name}}</h2>
+                <div class="gallery-images">
+                    {% for image in galery %}
+                        {% if image.service == service.name %}
+                            <div class="gallery-img">
+                                <img src="{{ image.image.url }}" width="200"><br/>
+                                <div class="gallery-img-text">{{image.text}}</div>
+                                {% if user.is_authenticated %}
+                                    <button class="gallery-img-delete"><a href="{% url 'delete-img' image.id %}">Smazat fotku</a></button>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <br/>
+            
+        </section>
+    </div>
 {% endblock  %}
