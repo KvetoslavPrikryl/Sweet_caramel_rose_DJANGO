@@ -1,9 +1,12 @@
+.container{
+    padding: 20px 60px;
+}
 .gallery{
     margin: 100px 0;
     width: 100%;
 }
 .gallery-title{
-    width: 400px;
+    width: 500px;
     margin: 50px auto;
     font-size: 4rem;
     text-align: center;
@@ -12,7 +15,7 @@
 .gallery-form{
     margin: 20px auto;
     width: 50%;
-    background: rgba(231,110,46,255);
+    background: rgba(78, 77, 77, 0.9);
     padding: 20px;
     text-align: center;
     display: flex;
@@ -21,14 +24,28 @@
 .gallery-form .input{
     margin: auto;
     width: 50%;
-    border-radius: 50px;
-    height: 25px;
-    padding: 5px;
-    font-size: 1.5rem;
 }
 .form-text{
     text-shadow: 2px 2px 2px black;
 }
 .gallery-submit{
     margin: 20px auto;
+}
+@media screen and (max-width:1400px){
+    .container{
+        padding: 20px 100px;
+    }
+}
+@media screen and (max-width:1000px){
+    .container{
+        padding: 0;
+    }
+}
+@media screen and (max-width:640px){
+    .gallery-form{
+        width: 90%;
+    }
+    .gallery-title{
+        width: 400px;
+    }
 }

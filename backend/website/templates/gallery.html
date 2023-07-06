@@ -1,34 +1,40 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block styling %}
+    <link rel="stylesheet", href="{% static 'Styles/gallery.css' %}">
+{% endblock %}
+
 {% block content %}
-  
-  {% if user.is_authenticated %}
-    <section class="gallery">
-      <h1 class="gallery-title">Vytvořit galerii</h1>
-      <form method="POST" enctype="multipart/form-data" class="gallery-form">
-        {% csrf_token %}
-        <h3 class="form-text">Obrázek:</h3> {{form.image}}
-        <h3 class="form-text">Text k obrázku:</h3> <div class="input">{{form.text}}</div>
-        <h3 class="form-text">Přidat ke službě:</h3> <div class="input">{{form.service}}</div><br/>
-        <input type="submit" value="Uložit" class="btn gallery-submit">
-      </form>
-    </section>
-    <section class="">
-      {% for service in services %}
-          <h2>{{service.name}}</h2>
-          {% for image in galery %}
-              {% if image.service == service.name %}
-                  <img src="{{ image.image.url }}" width="200">
-              {% endif %}
-          {% endfor %}
-      {% endfor %}
-    </section>
+  <div class="container">
+    {% if user.is_authenticated %}
+    
+      <section class="gallery">
+        <h1 class="gallery-title">Vytvořit galerii</h1>
+        <form method="POST" enctype="multipart/form-data" class="gallery-form">
+          {% csrf_token %}
+          <h3 class="form-text">Obrázek:</h3> <div class="input">{{form.image}}</div>
+          <h3 class="form-text">Text k obrázku:</h3> <div class="input">{{form.text}}</div>
+          <h3 class="form-text">Přidat ke službě:</h3> <div class="input">{{form.service}}</div><br/>
+          <input type="submit" value="Uložit" class="btn gallery-submit">
+        </form>
+      </section>
+      <section class="">
+        {% for service in services %}
+            <h2>{{service.name}}</h2>
+            {% for image in galery %}
+                {% if image.service == service.name %}
+                    <img src="{{ image.image.url }}" width="200">
+                    <p>{{ imege.text }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+      </section>
 
 
-  {% else %}
-    <h1>Nejste přihlášen!</h1>
-    <a href="{% url 'home' %}">Hlavní stránka</a>
-  {% endif %}
-
+    {% else %}
+      <h1>Nejste přihlášen!</h1>
+      <a href="{% url 'home' %}">Hlavní stránka</a>
+    {% endif %}
+  </div>
 {% endblock  %}

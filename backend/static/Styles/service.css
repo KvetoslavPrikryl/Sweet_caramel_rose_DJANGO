@@ -52,7 +52,7 @@
     color: black;
 }
 .service-form{
-    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(231, 111, 46, 0.4));
+    background: rgba(78, 77, 77, 0.9);
     width:200px;
     height: 250px;
     margin: 100px auto;

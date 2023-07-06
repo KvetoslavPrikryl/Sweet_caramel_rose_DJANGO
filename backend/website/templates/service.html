@@ -45,7 +45,7 @@
                         {% if image.service == service.name %}
                             <div class="gallery-img">
                                 <img src="{{ image.image.url }}" width="200"><br/>
-                                <div class="gallery-img-text">{{image.text}}</div>
+                                <p class="gallery-img-text">{{image.text}}</p>
                                 {% if user.is_authenticated %}
                                     <button class="gallery-img-delete"><a href="{% url 'delete-img' image.id %}">Smazat fotku</a></button>
                                 {% endif %}
