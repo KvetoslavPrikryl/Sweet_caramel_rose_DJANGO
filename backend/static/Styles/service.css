@@ -37,6 +37,7 @@
 }
 .service-name{
     margin: 0.2%;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 .price{
     position: absolute;
@@ -57,11 +58,11 @@
     margin: 100px auto;
     padding: 10px;
 }
+.form-text{
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
 .service-form-button{
     margin-top: 20px;
-}
-h3{
-    background: rgba(78, 77, 77, 0.9);
 }
 .gallery-headline{
     background: rgba(255, 255, 255, 0.4);

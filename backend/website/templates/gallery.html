@@ -2,25 +2,28 @@
 {% load static %}
 
 {% block content %}
-
+  
   {% if user.is_authenticated %}
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <h3>Obrázek:</h3> {{form.image}}
-      <h3>Text k obrázku:</h3> {{form.text}}
-      <h3>Přidat ke službě:</h3> {{form.service}}
-      <input type="submit" value="Uložit" class="">
-    </form>
-    
-    {% for service in services %}
-        <h2>{{service.name}}</h2>
-        {% for image in galery %}
-            {% if image.service == service.name %}
-                <img src="{{ image.image.url }}" width="200">
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
-
+    <section class="gallery">
+      <h1 class="gallery-title">Vytvořit galerii</h1>
+      <form method="POST" enctype="multipart/form-data" class="gallery-form">
+        {% csrf_token %}
+        <h3 class="form-text">Obrázek:</h3> {{form.image}}
+        <h3 class="form-text">Text k obrázku:</h3> <div class="input">{{form.text}}</div>
+        <h3 class="form-text">Přidat ke službě:</h3> <div class="input">{{form.service}}</div><br/>
+        <input type="submit" value="Uložit" class="btn gallery-submit">
+      </form>
+    </section>
+    <section class="">
+      {% for service in services %}
+          <h2>{{service.name}}</h2>
+          {% for image in galery %}
+              {% if image.service == service.name %}
+                  <img src="{{ image.image.url }}" width="200">
+              {% endif %}
+          {% endfor %}
+      {% endfor %}
+    </section>
 
 
   {% else %}

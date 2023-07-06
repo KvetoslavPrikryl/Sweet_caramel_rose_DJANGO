@@ -69,7 +69,7 @@ header{
 /* Main */
 
 main{
-    width: 85%;
+    width: 90%;
     float: right;
     margin: 50px 0;
 }
@@ -106,18 +106,16 @@ main{
 }
 
 /* Response */
-@media screen and (max-width:1400px){
-    main{
-        width: 100%;
-    }
 
-}
 @media screen and (max-width:1000px){
     .nav{
         display: none;
     }
     .hamburger{
         display: block;
+    }
+    .main{
+        width: 100%;
     }
 }
 @media screen and (max-width:640px) {
@@ -129,6 +127,6 @@ main{
         height: 250px;
     }
     main{
-        margin-top: 150px;
+        margin: 150px 20px;
     }
 }

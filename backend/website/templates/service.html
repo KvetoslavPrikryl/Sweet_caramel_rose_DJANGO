@@ -24,8 +24,8 @@
             {% if user.is_authenticated %}
                 <form action="{% url 'service' %}" method="POST" class="service-form">
                     {% csrf_token %}
-                    <h3>Nézev:</h3> {{form.name}}<br/>
-                    <h3>Cena:</h3> {{form.price}}<br/>
+                    <h3 class="form-text">Nézev:</h3> {{form.name}}<br/>
+                    <h3 class="form-text">Cena:</h3> {{form.price}}<br/>
                     <input type="submit" value="Uložit" class="btn service-form-button">
                 </form>
             {% endif %}
