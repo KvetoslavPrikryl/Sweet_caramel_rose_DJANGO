@@ -46,6 +46,7 @@ def kennel(request):
         elif dog.dog_sex == "štěně":
             puppy.append(dog)
         else:
+            some_dogs.append(dog)
             print(f"Nepodařilo se přidat tyto psy: {some_dogs}")
     if request.method == "POST":
         formular = DogForm(request.POST, request.FILES)

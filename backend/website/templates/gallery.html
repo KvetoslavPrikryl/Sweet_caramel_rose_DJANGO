@@ -11,23 +11,27 @@
     
       <section class="gallery">
         <h1 class="gallery-title">Vytvořit galerii</h1>
-        <form method="POST" enctype="multipart/form-data" class="gallery-form">
+        <form method="POST" enctype="multipart/form-data" class="form">
           {% csrf_token %}
           <h3 class="form-text">Obrázek:</h3> <div class="input">{{form.image}}</div>
           <h3 class="form-text">Text k obrázku:</h3> <div class="input">{{form.text}}</div>
           <h3 class="form-text">Přidat ke službě:</h3> <div class="input">{{form.service}}</div><br/>
-          <input type="submit" value="Uložit" class="btn gallery-submit">
+          <input type="submit" value="Uložit" class="btn form-button">
         </form>
       </section>
-      <section class="">
+      <section class="gallery-show">
         {% for service in services %}
             <h2>{{service.name}}</h2>
-            {% for image in galery %}
-                {% if image.service == service.name %}
-                    <img src="{{ image.image.url }}" width="200">
-                    <p>{{ imege.text }}</p>
-                {% endif %}
-            {% endfor %}
+            <div class="gallery-images">
+              {% for image in galery %}
+                  {% if image.service == service.name %}
+                  <div class="gallery-img">
+                    <img src="{{ image.image.url }}" width="200"><br/>
+                    <p class="gallery-img-text">{{image.text}}</p>
+                  </div>
+                  {% endif %}
+              {% endfor %}
+            </div>
         {% endfor %}
       </section>
 

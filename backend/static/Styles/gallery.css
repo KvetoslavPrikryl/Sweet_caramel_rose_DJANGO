@@ -12,6 +12,10 @@
     text-align: center;
     text-shadow: 2px 2px 2px white ,5px 10px 7px rgb(0, 0, 0);
 }
+.gallery-show{
+    width: 80%;
+    margin-left: auto;
+}
 .gallery-form{
     margin: 20px auto;
     width: 50%;
@@ -21,15 +25,20 @@
     display: flex;
     flex-direction: column;
 }
-.gallery-form .input{
-    margin: auto;
-    width: 50%;
-}
 .form-text{
     text-shadow: 2px 2px 2px black;
 }
-.gallery-submit{
-    margin: 20px auto;
+.gallery-images{
+    display: flex;
+}
+.gallery-img{
+    position: relative;
+    margin: 30px 10px;
+}
+.gallery-img-text{
+    position: absolute;
+    background: white;
+    width: 100%;
 }
 @media screen and (max-width:1400px){
     .container{

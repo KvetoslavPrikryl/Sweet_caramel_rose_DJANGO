@@ -1,66 +1,93 @@
 {% extends "base.html" %}
 {% load static %}
+{% block styling %}
+    <link rel="stylesheet", href="{% static 'Styles/kennel.css' %}">
+{% endblock %}
 
 {% block content %}
 
-    <div>
-        {% for dog in dog_man %}
-            <h2>{{dog.name}}</h2>
-            <a href="{{dog.link}}">Odkaz</a>
-            <p>{{dog.body}}</p>
-            <img src="{{dog.image1.url}}" width="200">
-            <img src="{{dog.image2.url}}" width="200">
-            <img src="{{dog.image3.url}}" width="200">
-            {% if user.is_authenticated %} 
-                <a href="{% url 'update' dog.id %}">Upravit</a>
-                <a href="{% url 'delete-dog' dog.id %}">Odstranit</a>
+    <div class="container">
+        <section class="kennel">
+            <div class="kennel-dogs">
+                <button class="btn">Pes</button>
+                {% for dog in dog_man %}
+                    <div class="one-dog">
+                        <h2 class="dog-name">{{dog.name}}</h2>
+                        <a href="{{dog.link}}" class="dog-link">Odkaz</a>
+                        <p class="dog-text">{{dog.body}}</p>
+                        <img src="{{dog.image1.url}}" class="dog-img">
+                        <img src="{{dog.image2.url}}" class="dog-img">
+                        <img src="{{dog.image3.url}}" class="dog-img">
+                        <div class="dog-admin">
+                            {% if user.is_authenticated %} 
+                                <a href="{% url 'update' dog.id %}" class="dog-edit-delete-button">Upravit</a>
+                                <a href="{% url 'delete-dog' dog.id %}" class="dog-edit-delete-button">Odstranit</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="kennel-dogs">
+                <button class="btn">Fena</button>
+            
+                {% for dog in dog_women %}
+                    <div class="one-dog">
+                        <h2 class="dog-name">{{dog.name}}</h2>
+                        <a href="{{dog.link}}" class="dog-link">Odkaz</a>
+                        <p class="dog-text">{{dog.body}}</p>
+                        <img src="{{dog.image1.url}}" class="dog-img">
+                        <img src="{{dog.image2.url}}" class="dog-img">
+                        <img src="{{dog.image3.url}}" class="dog-img">
+                        <div class="dog-admin">
+                            {% if user.is_authenticated %} 
+                                <a href="{% url 'update' dog.id %}" class="dog-edit-delete-button">Upravit</a>
+                                <a href="{% url 'delete-dog' dog.id %}" class="dog-edit-delete-button">Odstranit</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="kennel-dogs">
+                <button class="btn">Štěně</button>
+
+                {% for dog in puppy %}
+                    <div class="one-dog">
+                        <h2 class="dog-name">{{dog.name}}</h2>
+                        <a href="{{dog.link}}" class="dog-link">Odkaz</a>
+                        <p class="dog-text">{{dog.body}}</p>
+                        <img src="{{dog.image1.url}}" class="dog-img">
+                        <img src="{{dog.image2.url}}" class="dog-img">
+                        <img src="{{dog.image3.url}}" class="dog-img">
+                        <div class="dog-admin">
+                            {% if user.is_authenticated %} 
+                                <a href="{% url 'update' dog.id %}" class="dog-edit-delete-button">Upravit</a>
+                                <a href="{% url 'delete-dog' dog.id %}" class="dog-edit-delete-button">Odstranit</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+            {% if user.is_authenticated %}
+                <button class="btn form-button" >Vytvořit psa</button>
+                <section class="form">
+                    <form action="{% url 'kennel' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <h3>Jméno:</h3> {{form.name}}<br/>
+                        <h3>Odkaz:</h3>{{form.link}}<br/>
+                        <h3>Text:</h3>{{form.body}}<br/>
+                        <h3>Pohlaví psa:</h3>{{form.dog_sex}}
+                        <h3>Fotka1:</h3>{{form.image1}}<br/>
+                        <h3>Fotka2:</h3>{{form.image2}}<br/>
+                        <h3>Fotka3:</h3>{{form.image3}}<br/>
+                        <input type="submit" value="Uložit" class="btn form-button">
+                    </form>
+                </section>
             {% endif %}
-
-        {% endfor %}
-
-        {% for dog in dog_women %}
-            <h2>{{dog.name}}</h2>
-            <a href="{{dog.link}}">Odkaz</a>
-            <p>{{dog.body}}</p>
-            <img src="{{dog.image1.url}}" width="200">
-            <img src="{{dog.image2.url}}" width="200">
-            <img src="{{dog.image3.url}}" width="200">
-
-            {% if user.is_authenticated %} 
-                <a href="{% url 'update' dog.id %}">Upravit</a>
-                <a href="{% url 'delete-dog' dog.id %}">Odstranit</a>
-            {% endif %}
-
-        {% endfor %}
-
-        {% for dog in puppy %}
-            <h2>{{dog.name}}</h2>
-            <a href="{{dog.link}}">Odkaz</a>
-            <p>{{dog.body}}</p>
-            <img src="{{dog.image1.url}}" width="200">
-            <img src="{{dog.image2.url}}" width="200">
-            <img src="{{dog.image3.url}}" width="200">
-
-            {% if user.is_authenticated %} 
-                <a href="{% url 'update' dog.id %}">Upravit</a>
-                <a href="{% url 'delete-dog' dog.id %}">Odstranit</a>
-            {% endif %}
-
-        {% endfor %}
+       
     </div>
 
-    {% if user.is_authenticated %}
-        <form action="{% url 'kennel' %}" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <h3>Jméno:</h3> {{form.name}}<br/>
-            <h3>Odkaz:</h3>{{form.link}}<br/>
-            <h3>Text:</h3>{{form.body}}<br/>
-            <h3>Pohlaví psa:</h3>{{form.dog_sex}}
-            <h3>Fotka1:</h3>{{form.image1}}<br/>
-            <h3>Fotka2:</h3>{{form.image2}}<br/>
-            <h3>Fotka3:</h3>{{form.image3}}<br/>
-            <input type="submit" value="Uložit" class="">
-        </form>
-    {% endif %}
+    
 
 {% endblock  %}
