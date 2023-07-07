@@ -2,6 +2,7 @@
 {% load static %}
 {% block styling %}
     <link rel="stylesheet", href="{% static 'Styles/home.css' %}">
+    <script src="{% static 'Scripts/home.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -18,7 +19,7 @@
                         <img src="{{user.image.url}}" class="user-image" width="100"> 
                     {% endif %}
                     <p class="user-text">{{user.body}}</p>
-                    <button class="login-button">Přihlásit</button>
+                    <button class="login-button" id="login">Přihlásit</button>
                 </section>
             {% endfor%}
         </div>
@@ -27,15 +28,20 @@
 
         {% else %}
 
-
-            <form method="POST" action="{% url 'home' %}" class="login-form" >
-                {% csrf_token %}
-                <input type="text" placeholder="Jméno" name="username" required>
-                <br/>
-                <input type="password" placeholder="Heslo" name="password" required>
-                <br/>
-                <button>Přihlásit</button>
-            </form>
+            <div class="admin-login">
+                <div class="login-form">
+                    <button class="close" id="close"><img src="../static/IMG/close.png" width="30"></button>
+                    <form method="POST" action="{% url 'home' %}">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Jméno" name="username" required class="input">
+                        <br/>
+                        <input type="password" placeholder="Heslo" name="password" required class="input">
+                        <br/>
+                        <button class="btn form-button">Přihlásit</button>
+                    </form>
+                </div>
+                </div>
+            </div>
 
         {% endif %}
     </div>

@@ -48,3 +48,17 @@
 .dog-admin{
     padding: 10px;
 }
+@media screen and (max-width:1000px){
+    .container{
+        width: 100%;
+    }
+}
+@media screen and (max-width:800px){
+    .kennel{
+        flex-direction: column;
+    }
+    .kennel-dogs{
+        max-width: 90%;
+        margin: 10px auto;
+    }
+}
