@@ -2,6 +2,7 @@
 {% load static %}
 {% block styling %}
     <link rel="stylesheet", href="{% static 'Styles/service.css' %}">
+    <script src="{% static 'Scripts/service.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -22,10 +23,11 @@
                 </div>
             {% endfor %}
             {% if user.is_authenticated %}
-                <form action="{% url 'service' %}" method="POST" class="form">
+                <button class="btn create-service" id="create-service">Vytvořit novou službu</button>
+                <form action="{% url 'service' %}" method="POST" class="form service-form" id="service-form">
                     {% csrf_token %}
-                    <h3 class="form-text input">Nézev:</h3> {{form.name}}<br/>
-                    <h3 class="form-text input">Cena:</h3> {{form.price}}<br/>
+                    <h3 class=" form-text">Nézev:</h3> <div class="input">{{form.name}}</div><br/>
+                    <h3 class=" form-text">Cena:</h3> <div class="input">{{form.price}}</div><br/>
                     <input type="submit" value="Uložit" class="btn form-button">
                 </form>
             {% endif %}

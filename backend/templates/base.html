@@ -24,26 +24,27 @@
         {% endif %}
         {% if messages %}
             {% for message in messages %}
-                {{message}}
+                <div class="backend-message">{{message}}</div>
             {% endfor %}
         {% endif %}
         
+        <div class="body-container">
+            <main>
 
-        <main>
-
-            {% block content %}
-                    
-            {% endblock %}
-        </main>
-        <nav class="navbar">
-            <ul class="nav">
-                <li><a href="{% url 'home' %}"><button class="btn">Domů</button></a></li>
-                <li><a href="{% url 'kennel' %}"><button class="btn">Chovatelská stanice</button></a></li>
-                <li><a href="{% url 'service' %}"><button class="btn">Služby</button></a></li>
-                <li><a href="{% url 'contact' %}"><button class="btn">Kontakt</button></a></li>
-            </ul>
-            <button class="hamburger" id="hamburger"><img src="../static/IMG/menu.png" width="30"></button>
-        </nav>
+                {% block content %}
+                        
+                {% endblock %}
+            </main>
+            <nav class="navbar">
+                <ul class="nav">
+                    <li><a href="{% url 'home' %}"><button class="btn">Domů</button></a></li>
+                    <li><a href="{% url 'kennel' %}"><button class="btn">Chovatelská stanice</button></a></li>
+                    <li><a href="{% url 'service' %}"><button class="btn">Služby</button></a></li>
+                    <li><a href="{% url 'contact' %}"><button class="btn">Kontakt</button></a></li>
+                </ul>
+                <button class="hamburger" id="hamburger"><img src="../static/IMG/menu.png" width="30"></button>
+            </nav>
+        </div>
     </div>
     
     <footer>

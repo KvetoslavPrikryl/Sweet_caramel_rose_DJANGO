@@ -6,9 +6,10 @@
 }
 .kennel{
     display: flex;
+    flex-direction: initial;
 }
 .kennel-dogs{
-    max-width: 33%;
+    width: 33%;
     margin: 10px;
 }
 .one-dog{
@@ -47,6 +48,18 @@
 }
 .dog-admin{
     padding: 10px;
+}
+.create-dog{
+    display: none;
+}
+#dog-man{
+    display: none;
+}
+#dog-women{
+    display: none;
+}
+#dog-pup{
+    display: none;
 }
 @media screen and (max-width:1000px){
     .container{
