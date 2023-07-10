@@ -1,18 +1,9 @@
 .container{
-    width: 80%;
-    float: right;
-    text-align: center;
     margin-top: 16%;
 }
 .kennel{
     display: flex;
     flex-direction: initial;
-}
-.kennel-h2{
-    position: absolute;
-    left: 3%;
-    font-size: 2rem;
-    top: 0;
 }
 .kennel-dogs{
     width: 33%;

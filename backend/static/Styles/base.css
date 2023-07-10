@@ -104,6 +104,12 @@ main{
     font-size: 4rem;
     text-shadow: 2px 2px 2px white ,5px 10px 7px rgb(0, 0, 0);
 }
+.h2-headline{
+    position: absolute;
+    left: 3%;
+    font-size: 2rem;
+    top: 0;
+}
 .form{
     margin: 20px auto;
     width: 50%;
@@ -121,7 +127,15 @@ main{
     width: 50%;
     padding: 5px;
 }
-
+.main-page{
+    color: white;
+    font-size: 2rem;
+}
+.container{
+    text-align: center;
+    width: 80%;
+    float: right;
+}
 /* Footer */
 
 .footer-container{

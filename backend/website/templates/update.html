@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-
-    {% if user.is_authenticated %}
+    <div class="container">
+        {% if user.is_authenticated %}
         <form method="POST">
             {% csrf_token%}
             {{ form.as_p }}
@@ -11,10 +11,12 @@
         </form>
         
 
-    {% else %}
-    <h1>Nejste Přihlášení! </h1>
-    <a href="{% url 'home' %}">Přejít na Hlavní stránku</a>
+        {% else %}
+        <h1>Nejste Přihlášení! </h1>
+        <a href="{% url 'home' %}" class="main-page">Přejít na Hlavní stránku</a>
 
-    {% endif %}
+        {% endif %}
+    </div>
+    
 
 {% endblock  %}

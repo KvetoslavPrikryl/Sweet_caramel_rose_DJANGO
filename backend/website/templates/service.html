@@ -7,10 +7,9 @@
 
 {% block content %}
     <div class="container">
-        <section class="headline">
-            <h1 class="h1-headline">U sladké růže</h1>
-            <h2 class="h2-headline">Péče o zvířata</h2>
-        </section>
+        <h2 class="h2-headline">Péče o zvířata</h2>
+        <h1 class="logo-name">U sladké růže</h1>
+            
         <section class="services">
             {% for service in services %}
                 <div class="one-service">
@@ -26,8 +25,8 @@
                 <button class="btn create-service" id="create-service">Vytvořit novou službu</button>
                 <form action="{% url 'service' %}" method="POST" class="form service-form" id="service-form">
                     {% csrf_token %}
-                    <h3 class=" form-text">Nézev:</h3> <div class="input">{{form.name}}</div><br/>
-                    <h3 class=" form-text">Cena:</h3> <div class="input">{{form.price}}</div><br/>
+                    <h3>Nézev:</h3> <div class="input">{{form.name}}</div><br/>
+                    <h3>Cena:</h3> <div class="input">{{form.price}}</div><br/>
                     <input type="submit" value="Uložit" class="btn form-button">
                 </form>
             {% endif %}

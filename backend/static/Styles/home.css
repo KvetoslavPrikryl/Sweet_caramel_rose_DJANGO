@@ -1,14 +1,4 @@
 
-.container{
-    text-align: center;
-    width: 100%;
-}
-.welcome{
-    position: absolute;
-    left: 3%;
-    top: 0;
-    font-size: 2rem;
-}
 .welcome-image{
     height: 100vh;
 }
@@ -33,6 +23,8 @@
 .user-image{
     float:left;
     margin: 5px;
+    border-radius: 100%;
+    box-shadow: 2px 2px 7px black;
 }
 .user-text{
     font-size: 1.5rem;

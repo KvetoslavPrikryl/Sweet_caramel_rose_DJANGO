@@ -1,8 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block styling %}
+    <link rel="stylesheet", href="{% static 'Styles/contact.css' %}">
+{% endblock %}
+
 {% block content %}
 
-    
+    <div class="container">
+        <h2 class="h2-headline">Kontakt</h2>
+        <h1 class="logo-name">Sweet Caramel Rose</h1>
+
+        <form class="form" method="POST">
+            <h3>Email:</h3>
+            <input type="text" name="user_email" class="input" placeholder="E-mail"></input>
+            <h3>Předmět:</h3>
+            <input type="text" name="subject" class="input" placeholder="Předmět zprávy"></input>
+            <h3>Zpráva:</h3>
+            <textarea rows="6" placeholder="Sem napiště Vaši zprávu:" name="user_text" class="input"></textarea>
+            <button class="btn form-button">Odeslat</button>
+        </form>
+    </div>
 
 {% endblock  %}

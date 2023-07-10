@@ -1,26 +1,8 @@
 .container{
-    text-align: center;  
-    width: 80%;
-    float: right;
     margin-right: 5%;
 }
-.headline{
-    position: absolute;
-    top: 5%;
-    left: 3%;
-    text-align: left;
-}
-.h2-headline{
-    font-size: 2rem;
-    margin: 0;
-}
-.h1-headline{
-    font-size: 4rem;
-    margin: 10px;
-    text-shadow: 2px 2px 2px white ,5px 10px 7px rgb(0, 0, 0);
-}
 .services{
-    margin: 200px 0 100px 0;
+    margin: 21% 0 100px 0;
     height: 80vh;
 }
 .one-service{
@@ -60,9 +42,6 @@
 .service-form{
     display: none;
 }
-.form-text{
-    text-shadow: 2px 2px 2px rgb(0, 0, 0);
-}
 .gallery-headline{
     background: rgba(255, 255, 255, 0.4);
     text-shadow: 2px 2px 2px black;
@@ -89,9 +68,11 @@
 }
 .gallery-img-text{
     position: absolute;
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
     width: 100%;
     padding: 5px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 7px black;
 }
 .gallery-img-delete{
     position: absolute;
