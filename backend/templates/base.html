@@ -30,20 +30,21 @@
         
         <div class="body-container">
             <main>
-
+                
                 {% block content %}
                         
                 {% endblock %}
+                <nav class="navbar">
+                    <ul class="nav">
+                        <li><a href="{% url 'home' %}"><button class="btn">Domů</button></a></li>
+                        <li><a href="{% url 'kennel' %}"><button class="btn">Chovatelská stanice</button></a></li>
+                        <li><a href="{% url 'service' %}"><button class="btn">Služby</button></a></li>
+                        <li><a href="{% url 'contact' %}"><button class="btn">Kontakt</button></a></li>
+                    </ul>
+                    <button class="hamburger" id="hamburger"><img src="../static/IMG/menu.png" width="30"></button>
+                </nav>
             </main>
-            <nav class="navbar">
-                <ul class="nav">
-                    <li><a href="{% url 'home' %}"><button class="btn">Domů</button></a></li>
-                    <li><a href="{% url 'kennel' %}"><button class="btn">Chovatelská stanice</button></a></li>
-                    <li><a href="{% url 'service' %}"><button class="btn">Služby</button></a></li>
-                    <li><a href="{% url 'contact' %}"><button class="btn">Kontakt</button></a></li>
-                </ul>
-                <button class="hamburger" id="hamburger"><img src="../static/IMG/menu.png" width="30"></button>
-            </nav>
+            
         </div>
     </div>
     

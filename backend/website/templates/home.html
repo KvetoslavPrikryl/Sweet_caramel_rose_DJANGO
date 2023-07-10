@@ -19,10 +19,7 @@
                         <img src="{{user.image.url}}" class="user-image" width="100"> 
                     {% endif %}
                     <p class="user-text">{{user.body}}</p>
-                    {% if user.is_authenticated %}
-                    {% else %}
-                        <button class="login-button" id="login">Přihlásit</button>
-                    {% endif %}
+                    <button class="login-button" id="login">Přihlásit</button>
                 </section>
             {% endfor%}
         </div>

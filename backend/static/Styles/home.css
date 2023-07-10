@@ -5,28 +5,23 @@
 }
 .welcome{
     position: absolute;
-    top: 2%;
     left: 3%;
+    top: 0;
     font-size: 2rem;
-}
-.logo-name{
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    font-size: 4rem;
-    text-shadow: 2px 2px 2px white ,5px 10px 7px rgb(0, 0, 0);
 }
 .welcome-image{
     height: 100vh;
 }
 .user_block{
     position: relative;
-    margin: 0 auto;
-    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(231, 111, 46, 0.4));
+    margin: 0 auto 150px;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(231, 111, 46, 0.6));
     width: 50%;
     height: 500px;
     padding: 10px 20px;
     text-align: left;
+    border-radius: 25px;
+    box-shadow: 2px 2px 7px black;
 }
 .block{
     padding: 20px;
@@ -41,6 +36,7 @@
 }
 .user-text{
     font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
 }
 .login-button{
     position: absolute;
