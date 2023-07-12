@@ -48,6 +48,9 @@ header{
     height: 100vh;
     position: fixed;
 }
+.navbar-active{
+    width:100%;
+}
 .nav{
     display: flex;
     flex-direction: column;
@@ -55,7 +58,7 @@ header{
     align-items: center;
     margin-top: 170px;
 }
-.active{
+.nav-active{
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -174,9 +177,6 @@ main{
     }
 }
 @media screen and (max-width:1000px){
-    .navbar{
-        width:100%;
-    }
     .nav{
         display: none;
     }
@@ -192,11 +192,20 @@ main{
     }
 }
 @media screen and (max-width:640px) {
+    .container{
+        width: 100%;
+    }
     .footer-container{
         grid-template-columns: 1fr;
     }
     .google_map{
         width: 300px;
         height: 250px;
+    }
+    .logo-name{
+        top: 5%;
+    }
+    .form{
+        width: 90%;
     }
 }

@@ -40,23 +40,46 @@
         </div>
         <section class="gallery">
             {% for service in services %}
-                <h2>{{service.name}}</h2>
+                <h2 class="gallery-service-name">{{service.name}}</h2>
                 <div class="gallery-images">
                     {% for image in galery %}
                         {% if image.service == service.name %}
                             <div class="gallery-img">
-                                <img src="{{ image.image.url }}" width="200"><br/>
+
+                                <h2 class="service-name-active">{{image.service}}</h2>
+                                <img src="{{ image.image.url }}"><br/>
                                 <p class="gallery-img-text">{{image.text}}</p>
+                                    
                                 {% if user.is_authenticated %}
-                                    <button class="gallery-img-delete"><a href="{% url 'delete-img' image.id %}">Smazat fotku</a></button>
+                                    <div class="admin-button-delete">
+                                        <button class="gallery-img-delete"><a href="{% url 'delete-img' image.id %}">Smazat fotku</a></button>
+                                    </div>
                                 {% endif %}
+                                
                             </div>
                         {% endif %}
                     {% endfor %}
                 </div>
             {% endfor %}
+            <div class="gallery-buttons">
+                <button class="close" id="close"><img src="../static/IMG/close.png" width="30"></button>
+                <button class="left" id="left"><img src="../static/IMG/left.png" width="30"></button>
+                <button class="right" id="right"><img src="../static/IMG/right.png" width="30"></button>
+            </div>
             <br/>
-            
         </section>
     </div>
 {% endblock  %}
+
+<!--
+<section class="gallery-active">
+            
+    {% for image in galery %}
+        <div class="slide ">
+            <h2>{{image.service}}</h2>
+            <img src="{{ image.image.url }}" class="image-active" ><br/>
+            <p class="text-active">{{image.text}}</p>
+        </div>
+    {% endfor %}
+    </div>
+</section>

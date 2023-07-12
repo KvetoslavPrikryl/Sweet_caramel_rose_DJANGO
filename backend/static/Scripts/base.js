@@ -1,6 +1,7 @@
 function hamburger(){
     $("#hamburger").click(function(){
-        $(".nav").addClass("active").removeClass("nav")
+        $(".nav").addClass("nav-active").removeClass("nav")
+        $(".navbar").addClass("navbar-active")
     })
 };
 

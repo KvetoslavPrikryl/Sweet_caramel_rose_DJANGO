@@ -36,10 +36,10 @@
     padding:10px;
 }
 .dog-img{
-    width: 100px;
+    width: 150px;
 }
 .dog-img:hover{
-    width: 200px;
+    width: 250px;
 }
 .dog-edit-delete-button{
     background: rgba(0, 0, 0, 0.5);
@@ -62,17 +62,16 @@
 #dog-pup{
     display: none;
 }
-@media screen and (max-width:1000px){
-    .container{
-        width: 100%;
-    }
-}
 @media screen and (max-width:800px){
+    .container{
+        margin-top: 100%;
+    }
     .kennel{
         flex-direction: column;
     }
     .kennel-dogs{
-        max-width: 90%;
+        width: 90%;
         margin: 10px auto;
+
     }
 }

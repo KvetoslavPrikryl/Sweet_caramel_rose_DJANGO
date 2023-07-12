@@ -1,3 +1,8 @@
 .container{
     margin: 16% 5% 100px 0;
 }
+@media screen and (max-width:800px){
+    .container{
+        margin: 75% 0 100px 0;
+    }
+}
