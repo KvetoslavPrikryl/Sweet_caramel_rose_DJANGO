@@ -17,3 +17,8 @@ class GalleryForm(ModelForm):
         model = Galery
         fields = "__all__"
 
+class ContactForm(forms.Form):
+    subject = forms.CharField(max_length=30)
+    email = forms.EmailField()
+    text = forms.CharField(widget=forms.Textarea)
+

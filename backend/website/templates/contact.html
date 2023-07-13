@@ -11,15 +11,15 @@
         <h2 class="h2-headline">Kontakt</h2>
         <h1 class="logo-name">Sweet Caramel Rose</h1>
 
-        <form class="form" method="POST">
-            <h3>Email:</h3>
-            <input type="text" name="user_email" class="input" placeholder="E-mail"></input>
-            <h3>Předmět:</h3>
-            <input type="text" name="subject" class="input" placeholder="Předmět zprávy"></input>
-            <h3>Zpráva:</h3>
-            <textarea rows="6" placeholder="Sem napiště Vaši zprávu:" name="user_text" class="input"></textarea>
-            <button class="btn form-button">Odeslat</button>
+        
+        <form method="POST" class="form">
+            {% csrf_token%}
+            <h3>Předmět</h3><div class="input">{{ form.subject }}</div>
+            <h3>E-mail</h3><div class="input">{{ form.email }}</div>
+            <h3>Text</h3><div class="input">{{ form.text }}</div>
+            <input type="submit" value="Odeslat" class="btn form-button">
         </form>
+        
     </div>
 
 {% endblock  %}

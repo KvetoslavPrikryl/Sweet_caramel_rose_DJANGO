@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
+from django.core.mail import send_mail
 from django.contrib import messages
 from .models import User, Dog, Service, Galery
-from .form import DogForm, ServiceForm, GalleryForm
+from .form import DogForm, ServiceForm, GalleryForm, ContactForm
 from django.http import HttpResponseRedirect
+from django.template.loader import render_to_string
 
 def home(request):
     user_list = User.objects.all()
@@ -132,4 +134,25 @@ def delete_img(request, pk):
     return redirect("service")
 
 def contact(request):
-    return render(request, "contact.html", {})
+    
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data["subject"]
+            email = form.cleaned_data["email"]
+            text = form.cleaned_data["text"]
+
+            html = render_to_string("contact-form/contactForm.html", {
+                "subject" : subject,
+                "email" : email,
+                "text": text
+            })
+
+            send_mail("subject","text", "email", ["kveta.prikryl@gmail.com"], html_message=html )
+
+            messages.success(request, "E-mail byl v pořádku odeslán. :)")
+    else:
+        form = ContactForm()
+    return render(request, "contact.html", {
+        "form": form
+    })
