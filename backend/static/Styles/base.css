@@ -48,23 +48,26 @@ header{
 .body-container{
     display: flex;
     flex-direction: initial;
-    min-width: 100%;
-    min-height: 100vh;
 }
 
 /* Navbar */
 
 .navbar{
+    height: 100vh;
     position: fixed;
+    top:20%;
+}
+.navbar-active{
+    width:100%;
 }
 .nav{
     display: flex;
     flex-direction: column;
     height: 100vh;
     align-items: center;
-    justify-content: center;
+    margin-top: 170px;
 }
-.active{
+.nav-active{
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -104,8 +107,20 @@ header{
 main{
     width: 100%;
     float: right;
-    margin: 50px 0;
     min-height: 100vh;
+}
+.logo-name{
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    font-size: 4rem;
+    text-shadow: 2px 2px 2px white ,5px 10px 7px rgb(0, 0, 0);
+}
+.h2-headline{
+    position: absolute;
+    left: 3%;
+    font-size: 2rem;
+    top: 0;
 }
 .form{
     margin: 20px auto;
@@ -124,7 +139,15 @@ main{
     width: 50%;
     padding: 5px;
 }
-
+.main-page{
+    color: white;
+    font-size: 2rem;
+}
+.container{
+    text-align: center;
+    width: 80%;
+    float: right;
+}
 /* Footer */
 
 .footer-container{
@@ -163,9 +186,6 @@ main{
     }
 }
 @media screen and (max-width:1000px){
-    .navbar{
-        width:100%;
-    }
     .nav{
         display: none;
     }
@@ -174,6 +194,7 @@ main{
     }
     .main{
         width: 100%;
+        margin: 0;
     }
     .footer-container .cont-left{
         padding: 5rem 3rem 1rem 3rem;
@@ -183,11 +204,20 @@ main{
     }
 }
 @media screen and (max-width:640px) {
+    .container{
+        width: 100%;
+    }
     .footer-container{
         grid-template-columns: 1fr;
     }
     .google_map{
         width: 300px;
         height: 250px;
+    }
+    .logo-name{
+        top: 5%;
+    }
+    .form{
+        width: 90%;
     }
 }

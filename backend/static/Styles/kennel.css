@@ -2,13 +2,7 @@
     width: 80%;
     float: right;
     text-align: center;
-}
-.logo-name{
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    font-size: 4rem;
-    text-shadow: 2px 2px 2px white ,5px 10px 7px rgb(0, 0, 0);
+    margin-top: 11.5%;
 }
 .kennel{
     margin-top: 15%;
@@ -25,6 +19,7 @@
     border-radius: 25px;
     text-align: left;
     padding: 0 20px;
+    box-shadow: 2px 2px 7px black;
 }
 .dog-name{
     text-shadow: 2px 2px 2px black;
@@ -45,7 +40,10 @@
     padding:10px;
 }
 .dog-img{
-    width: 100px;
+    width: 150px;
+}
+.dog-img:hover{
+    width: 250px;
 }
 .dog-edit-delete-button{
     background: rgba(0, 0, 0, 0.5);
@@ -68,18 +66,17 @@
 #dog-pup{
     display: none;
 }
-@media screen and (max-width:1000px){
-    .container{
-        width: 100%;
-    }
-}
 @media screen and (max-width:800px){
+    .container{
+        margin-top: 100%;
+    }
     .kennel{
         flex-direction: column;
     }
     .kennel-dogs{
         width: 90%;
         margin: 10px auto;
+
     }
     .logo-name{
         display: none;
