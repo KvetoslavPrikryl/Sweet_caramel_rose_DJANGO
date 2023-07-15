@@ -1,8 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block styling %}
+    <link rel="stylesheet", href="{% static 'Styles/contact.css' %}">
+{% endblock %}
+
 {% block content %}
 
-    
+    <div class="container">
+        <h1>Kontakt</h1>
+        <form action="{% url 'contact' %}" method="POST" class="form-contact">
+            {% csrf_token %}
+            <label>Email:</label>
+            <input type="email" name="user_email" class="input" placeholder="E-mail"></input>
+            <label>Předmět:</label>
+            <input type="text" name="subject" class="input" placeholder="Předmět"></input>
+            <label>Zpráva:</label>
+            <textarea rows="6" placeholder="Sem napiště Vaši zprávu:" name="message" class="input"></textarea>
+            <input type="submit" class="btn form-button">
+        </form>
+    </div>
 
 {% endblock  %}

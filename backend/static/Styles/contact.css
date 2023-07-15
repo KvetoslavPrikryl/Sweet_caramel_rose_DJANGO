@@ -1,0 +1,19 @@
+.container{
+    text-align: center;
+    width: 100%;
+}
+.form-contact{
+    margin: 20px auto;
+    width: 50%;
+    background: rgba(231, 111, 46, 0.4);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width:1000px){
+    .form-contact{
+        width: 80%;
+    }
+}

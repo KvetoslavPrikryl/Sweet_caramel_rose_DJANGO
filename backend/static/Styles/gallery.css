@@ -30,6 +30,7 @@
 }
 .gallery-images{
     display: flex;
+    flex-direction: column;
 }
 .gallery-img{
     position: relative;

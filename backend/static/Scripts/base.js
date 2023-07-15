@@ -1,9 +1,9 @@
 function hamburger(){
     $("#hamburger").click(function(){
-        if ($(this).childern("nav")){
+        if ($(this).children(".nav")){
             $(".nav").addClass("active").removeClass("nav")
         }
-        else if ($(this).childern("active")){
+        else if ($(this).children(".active")){
             $(".active").addClass("nav").removeClass("active")
         }
         

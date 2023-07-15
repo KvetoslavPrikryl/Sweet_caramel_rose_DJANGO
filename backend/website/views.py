@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import User, Dog, Service, Galery
 from .form import DogForm, ServiceForm, GalleryForm
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail, BadHeaderError
+from django.conf import settings
 
 def home(request):
     user_list = User.objects.all()
@@ -132,4 +134,20 @@ def delete_img(request, pk):
     return redirect("service")
 
 def contact(request):
+    if request.method == "POST":
+        message = request.POST["message"]
+        email = request.POST["user_email"]
+        subject = request.POST["subject"]
+        
+        if message and email and subject:
+            try: 
+                send_mail(subject, message,email, ["kveta.prikryl@gmail.com"])
+                messages.success(request, f"Email byl v pořádku odeslán. :)")
+
+            except BadHeaderError: 
+                messages.success(request, f"Nepodařilo se odeslat email. Je vše správně vyplněné?")
+            return redirect("contact")
+        else:
+            messages.success(request, f"Nepodařilo se odeslat email. Je vše správně vyplněné?")
+        
     return render(request, "contact.html", {})

@@ -37,19 +37,24 @@ header{
 }
 .backend-message{
     position: absolute;
-    width: 100%;
+    width: 50%;
     text-align: center;
     background: white;
+    left: 25%;
+    font-size: 2rem;
+    padding: 20px;
+    color: green;
 }
 .body-container{
     display: flex;
     flex-direction: initial;
+    min-width: 100%;
+    min-height: 100vh;
 }
 
 /* Navbar */
 
 .navbar{
-    height: 100vh;
     position: fixed;
 }
 .nav{
@@ -172,6 +177,9 @@ main{
     }
     .footer-container .cont-left{
         padding: 5rem 3rem 1rem 3rem;
+    }
+    .input{
+        width: 80%;
     }
 }
 @media screen and (max-width:640px) {
