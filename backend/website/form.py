@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Dog, Service, Galery
+from .models import Service, Galery, Link, Dog
 
 class DogForm(ModelForm):
     class Meta:
@@ -18,7 +18,11 @@ class GalleryForm(ModelForm):
         fields = "__all__"
 
 class ContactForm(forms.Form):
-    subject = forms.CharField(max_length=30)
+    name = forms.CharField(max_length=30)
     email = forms.EmailField()
     text = forms.CharField(widget=forms.Textarea)
 
+class LinkForm(forms.Form):
+    class Meta:
+        model = Link
+        fields = "__all__"

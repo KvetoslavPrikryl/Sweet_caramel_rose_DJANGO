@@ -32,35 +32,29 @@
             {% endif %}
         </section>
 
-        <h2 class="gallery-headline">Galerie</h2>
-        <div class="create-gallery">
-            {% if user.is_authenticated %}
-                    <button><a href="{% url 'gallery' %}">Vytvořit galerii</a></button>
-            {% endif %}
-        </div>
+        
         <section class="gallery">
-            {% for service in services %}
-                <h2 class="gallery-service-name">{{service.name}}</h2>
-                <div class="gallery-images">
-                    {% for image in galery %}
-                        {% if image.service == service.name %}
-                            <div class="gallery-img">
-
-                                <h2 class="service-name-active">{{image.service}}</h2>
-                                <img src="{{ image.image.url }}"><br/>
-                                <p class="gallery-img-text">{{image.text}}</p>
-                                    
-                                {% if user.is_authenticated %}
-                                    <div class="admin-button-delete">
-                                        <button class="gallery-img-delete"><a href="{% url 'delete-img' image.id %}">Smazat fotku</a></button>
-                                    </div>
-                                {% endif %}
-                                
+            <h2 class="gallery-headline">Galerie</h2>
+            <div class="create-gallery">
+                {% if user.is_authenticated %}
+                        <button><a href="{% url 'gallery' %}">Vytvořit galerii</a></button>
+                {% endif %}
+            </div>
+            <div class="gallery-images">
+                {% for image in galery %}
+                    <div class="gallery-img">
+                        <h2 class="service-name-active">{{image.service}}</h2>
+                        <img src="{{ image.image.url }}"><br/>
+                        <p class="gallery-img-text">{{image.text}}</p>
+                        {% if user.is_authenticated %}
+                            <div class="admin-button-delete">
+                                <button class="gallery-img-delete"><a href="{% url 'delete-img' image.id %}">Smazat fotku</a></button>
                             </div>
                         {% endif %}
-                    {% endfor %}
-                </div>
-            {% endfor %}
+                                
+                    </div>
+                {% endfor %}
+            </div>
             <div class="gallery-buttons">
                 <button class="close" id="close"><img src="../static/IMG/close.png" width="30"></button>
                 <button class="left" id="left"><img src="../static/IMG/left.png" width="30"></button>

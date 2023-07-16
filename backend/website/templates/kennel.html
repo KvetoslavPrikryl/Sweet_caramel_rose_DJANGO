@@ -8,8 +8,8 @@
 {% block content %}
 
     <div class="container">
-        <h1></h1>
-        <h2></h2>
+        <h2 class="h2-headline">Vítejte na stránce</h2>
+        <h1 class="logo-name">Sweet Caramel Rose</h1>
         <section class="kennel">
             <div class="kennel-dogs">
                 <button class="btn dog-button" id="dog-man-button">Pes</button>
@@ -17,7 +17,10 @@
                     {% for dog in dog_man %}
                         <div class="one-dog">
                             <h2 class="dog-name">{{dog.name}}</h2>
-                            <a href="{{dog.link}}" class="dog-link">Odkaz</a>
+                            <p>Barva: {{dog.color}}</p>
+                            <p>Váha: {{dog.weight}}</p>
+                            <p>Výška: {{dog.height}}</p>
+                            <p>Patel: {{dog.patel}}</p>
                             <p class="dog-text">{{dog.body}}</p>
                             {% if dog.image1 %}
                                 <img src="{{dog.image1.url}}" class="dog-img">
@@ -44,7 +47,10 @@
                         {% for dog in dog_women %}
                             <div class="one-dog">
                                 <h2 class="dog-name">{{dog.name}}</h2>
-                                <a href="{{dog.link}}" class="dog-link">Odkaz</a>
+                                <p>Barva: {{dog.color}}</p>
+                                <p>Váha: {{dog.weight}}</p>
+                                <p>Výška: {{dog.height}}</p>
+                                <p>Patel: {{dog.patel}}</p>
                                 <p class="dog-text">{{dog.body}}</p>
                                 {% if dog.image1 %}
                                     <img src="{{dog.image1.url}}" class="dog-img">
@@ -71,8 +77,11 @@
                         {% for dog in puppy %}
                             <div class="one-dog">
                                 <h2 class="dog-name">{{dog.name}}</h2>
-                                <a href="{{dog.link}}" class="dog-link">Odkaz</a>
-                                <p class="dog-text">{{dog.body}}</p>
+                                <p>Barva: {{dog.color}}</p>
+                                <p>Váha: {{dog.weight}}</p>
+                                <p>Výška: {{dog.height}}</p>
+                                <p>Patel: {{dog.patel}}</p>
+                                <p class="dog-text">Ocenění: {{dog.body}}</p>
                                 {% if dog.image1 %}
                                     <img src="{{dog.image1.url}}" class="dog-img">
                                 {% endif %}
@@ -100,7 +109,10 @@
                     <form action="{% url 'kennel' %}" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <h3>Jméno:</h3> {{form.name}}<br/>
-                        <h3>Odkaz:</h3>{{form.link}}<br/>
+                        <h3>Barva</h3>{{form.color}}
+                        <h3>Váha</h3>{{form.weight}}
+                        <h3>Výška</h3>{{form.height}}
+                        <h3>Patel</h3>{{form.patel}}
                         <h3>Text:</h3>{{form.body}}<br/>
                         <h3>Pohlaví psa:</h3>{{form.dog_sex}}
                         <h3>Fotka1:</h3>{{form.image1}}<br/>

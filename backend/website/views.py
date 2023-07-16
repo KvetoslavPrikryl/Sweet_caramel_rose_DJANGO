@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
 from django.core.mail import send_mail
 from django.contrib import messages
-from .models import User, Dog, Service, Galery
-from .form import DogForm, ServiceForm, GalleryForm, ContactForm
+from .models import User, Service, Galery, Link, Dog
+from .form import ServiceForm, GalleryForm, ContactForm, LinkForm, DogForm
 from django.http import HttpResponseRedirect
+from django.template.loader import render_to_string
 
 def home(request):
     user_list = User.objects.all()
@@ -66,6 +67,21 @@ def kennel(request):
         "submitted": submitted 
     })
 
+def dog(request, pk):
+    dog = Dog.objects.get(pk=pk)
+    form = DogForm(request.POST or None, instance=dog)
+    if form.is_valid():
+        form.save()
+        return redirect("kennel")
+    return render(request, "update.html", {
+        "form": form
+        })
+
+def delete_dog(request, pk):
+    dog = Dog.objects.get(pk=pk)
+    dog.delete()
+    return redirect("kennel")
+
 def service(request):
     services = Service.objects.all()
     form = ServiceForm
@@ -86,15 +102,6 @@ def service(request):
         "galery" : galery,
     })
 
-def dog(request, pk):
-    dog = Dog.objects.get(pk=pk)
-    form = DogForm(request.POST or None, instance=dog)
-    if form.is_valid():
-        form.save()
-        return redirect("kennel")
-    return render(request, "update.html", {
-        "form": form
-        })
 
 def galery(request):
     form = GalleryForm
@@ -116,12 +123,6 @@ def galery(request):
         "services" : services
     })
 
-
-def delete_dog(request, pk):
-    dog = Dog.objects.get(pk=pk)
-    dog.delete()
-    return redirect("kennel")
-
 def delete_service(request, pk):
     service = Service.objects.get(pk=pk)
     service.delete()
@@ -133,4 +134,47 @@ def delete_img(request, pk):
     return redirect("service")
 
 def contact(request):
-    return render(request, "contact.html", {})
+    
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data["subject"]
+            email = form.cleaned_data["email"]
+            text = form.cleaned_data["text"]
+
+            html = render_to_string("contact-form/contactForm.html", {
+                "subject" : subject,
+                "email" : email,
+                "text": text
+            })
+
+            send_mail("subject","text", "email", ["kveta.prikryl@gmail.com"], html_message=html )
+
+            messages.success(request, "E-mail byl v pořádku odeslán. :)")
+    else:
+        form = ContactForm()
+    return render(request, "contact.html", {
+        "form": form
+    })
+
+def links(request):
+    links = Link.objects.all()
+    form = LinkForm
+    if request.method == "POST":
+        form = LinkForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("gallery")
+        else:
+            form = LinkForm
+            if "submitted" in request.GET:
+                submitted = True
+    return render(request, "links.html", {
+        "links" : links,
+        "form" : form
+    })
+
+def delete_link(request, pk):
+    link = Link.objects.get(pk=pk)
+    link.delete()
+    return redirect("links")

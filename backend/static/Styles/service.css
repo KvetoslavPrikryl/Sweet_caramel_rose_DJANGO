@@ -3,7 +3,6 @@
 }
 .services{
     margin: 21% 0 100px 0;
-    height: 80vh;
 }
 .one-service{
     position: relative;
@@ -47,6 +46,7 @@
     text-shadow: 2px 2px 2px black;
     font-size: 3rem;
     margin-top: 35%;
+    text-align: center;
 }
 .create-gallery{
     text-align: right;
@@ -68,12 +68,7 @@
     width: 200px;
 }
 .gallery-img-text{
-    position: absolute;
-    background: rgba(255, 255, 255, 0.7);
-    width: 100%;
-    padding: 5px;
-    border-radius: 25px;
-    box-shadow: 2px 2px 7px black;
+    display: none;
 }
 .gallery-img-delete{
     position: absolute;

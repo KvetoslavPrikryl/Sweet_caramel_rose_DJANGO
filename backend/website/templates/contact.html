@@ -14,7 +14,7 @@
         
         <form method="POST" class="form">
             {% csrf_token%}
-            <h3>Předmět</h3><div class="input">{{ form.subject }}</div>
+            <h3>Jméno</h3><div class="input">{{ form.name }}</div>
             <h3>E-mail</h3><div class="input">{{ form.email }}</div>
             <h3>Text</h3><div class="input">{{ form.text }}</div>
             <input type="submit" value="Odeslat" class="btn form-button">
