@@ -16,7 +16,7 @@
             {% csrf_token%}
             <h3>Jméno</h3><div class="input">{{ form.name }}</div>
             <h3>E-mail</h3><div class="input">{{ form.email }}</div>
-            <h3>Text</h3><div class="input">{{ form.text }}</div>
+            <h3>Text</h3><div class="input form-textarea">{{ form.text }}</div>
             <input type="submit" value="Odeslat" class="btn form-button">
         </form>
         

@@ -1,10 +1,12 @@
 function hamburger(){
     $("#hamburger").click(function(){
-        if ($(this).childern("nav")){
-            $(".nav").addClass("active").removeClass("nav")
+        if ($(this).children("nav")){
+            $(".nav").addClass("nav-active").removeClass("nav")
+            $(".navbar").addClass("navbar-active").removeClass("navbar")
         }
-        else if ($(this).childern("active")){
-            $(".active").addClass("nav").removeClass("active")
+        else if ($(this).children("active")){
+            $(".nav-active").addClass("nav").removeClass("nav-active")
+            $(".navbar-active").addClass("navbar").removeClass("navbar-active")
         }
         
     })

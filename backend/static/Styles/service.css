@@ -2,7 +2,7 @@
     margin-right: 5%;
 }
 .services{
-    margin: 21% 0 100px 0;
+    margin: 17% 0 100px 0;
 }
 .one-service{
     position: relative;
@@ -45,7 +45,6 @@
     background: rgba(255, 255, 255, 0.4);
     text-shadow: 2px 2px 2px black;
     font-size: 3rem;
-    margin-top: 35%;
     text-align: center;
 }
 .create-gallery{
@@ -139,30 +138,19 @@
     top: 45%;
     right: 5%;
 }
-@media screen and (max-width:1400px){
-    .container{
-        padding-left: 20%;
-        width: 80%;
-        margin-right: 0;
-    }
-}
 @media screen and (max-width:1000px){
     .container{
-        width: 100%;
-        padding-left: 0;
-    }
-    .gallery{
-        padding: 5% 20%;
+        margin-top: 20%;
     }
 }
 @media screen and (max-width:640px){
-    .container{
-        width: 100%;
-    }
     .services{
         margin: 40% 0 100px 0;
     }
     .gallery-images{
         flex-direction: column;
+    }
+    .gallery{
+        padding: 5% 5%;
     }
 }

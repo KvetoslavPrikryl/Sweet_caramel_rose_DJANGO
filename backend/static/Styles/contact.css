@@ -1,7 +1,9 @@
 .container{
     margin: 16% 5% 100px 0;
 }
-
+.form-textarea{
+    margin-left: 10%;
+}
 @media screen and (max-width:800px){
     .container{
         margin: 75% 0 100px 0;
