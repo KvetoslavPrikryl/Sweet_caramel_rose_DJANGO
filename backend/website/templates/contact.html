@@ -14,9 +14,9 @@
         
         <form method="POST" class="form">
             {% csrf_token%}
-            <h3>Jméno</h3><div class="input">{{ form.name }}</div>
-            <h3>E-mail</h3><div class="input">{{ form.email }}</div>
-            <h3>Text</h3><div class="input form-textarea">{{ form.text }}</div>
+            <h3>Jméno</h3>{{ form.name }}
+            <h3>E-mail</h3>{{ form.email }}
+            <h3>Text</h3>{{ form.text }}
             <input type="submit" value="Odeslat" class="btn form-button">
         </form>
         

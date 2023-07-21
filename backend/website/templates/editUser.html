@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styling %}
+    <link rel="stylesheet", href="{% static 'Styles/gallery.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    {% if user.is_authenticated %}
+    
+      <section class="user-profile">
+        <form method="POST" class="form" enctype="multipart/form-data">
+            {% csrf_token%}
+            <h3>Jméno:</h3>{{form.name}}
+            <h3>Text</h3>{{form.body}}
+            <h3>Fotka</h3>{{form.image}}
+            <input type="submit" value="Uložit" class="btn form-button">
+        </form>
+        
+      </section>
+
+
+    {% else %}
+      <h1>Nejste přihlášen!</h1>
+      <button class="btn"><a href="{% url 'home' %}" class="main-page">Přejít na Hlavní stránku</a></button>
+    {% endif %}
+  </div>
+{% endblock  %}

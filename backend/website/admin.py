@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import User, Service, Galery, Link, Dog
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ("name", "body", "image")
+    list_display = ("name", "body", "image", "id")
 
 class DogAdmin(admin.ModelAdmin):
     list_display = ("name", "color", "weight", "height", "patel", "body", "dog_sex", "image1", "image2", "image3")

@@ -1,6 +1,11 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Service, Galery, Link, Dog
+from .models import User, Service, Galery, Link, Dog
+
+class UserForm(ModelForm):
+    class Meta:
+        model = User
+        fields = "__all__"
 
 class DogForm(ModelForm):
     class Meta:

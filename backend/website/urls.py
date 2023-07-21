@@ -13,5 +13,6 @@ urlpatterns = [
     path("gallery/<str:pk>", views.delete_img, name="delete-img"),
     path("kontakt", views.contact, name="contact"),
     path("odkazy", views.links, name="links"),
-    path("odkazy/<str:pk>",views. delete_link, name="delete-link")
+    path("odkazy/<str:pk>",views. delete_link, name="delete-link"),
+    path("profil/<str:pk>", views.edit_user, name="edit-user")
 ]

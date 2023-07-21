@@ -12,16 +12,20 @@
             <h1 class="logo-name">Sweet Caramel Rose</h1>
         </div>
         <div class="user_block">
-            {%for user in user_list%}
+            {% for user_data in user_list %}
                 <section>
-                    <h2 class="user-name">{{user.name}}</h2>
-                    {% if user.image %}
-                        <img src="{{user.image.url}}" class="user-image" width="100"> 
+                    <h2 class="user-name">{{user_data.name}}</h2>
+                    {% if user_data.image %}
+                        <img src="{{user_data.image.url}}" class="user-image" width="100"> 
                     {% endif %}
-                    <p class="user-text">{{user.body}}</p>
-                    <button class="login-button" id="login">Přihlásit</button>
+                    <p class="user-text">{{user_data.body}}</p>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'edit-user' user_data.id %}"><button class="btn edit-user-data">Upravit profil</button></a>
+                    {% else %}
+                        <button class="login-button" id="login">Přihlásit</button>
+                    {% endif  %}
                 </section>
-            {% endfor%}
+            {% endfor %}
         </div>
 
         {% if user.is_authenticated %}

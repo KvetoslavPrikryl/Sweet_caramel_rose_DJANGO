@@ -3,16 +3,14 @@ from django.contrib.auth import authenticate,login, logout
 from django.core.mail import send_mail
 from django.contrib import messages
 from .models import User, Service, Galery, Link, Dog
-from .form import ServiceForm, GalleryForm, ContactForm, LinkForm, DogForm
+from .form import ServiceForm, GalleryForm, ContactForm, LinkForm, DogForm, UserForm
 from django.http import HttpResponseRedirect
 from django.template.loader import render_to_string
 
 def home(request):
     user_list = User.objects.all()
 
-
     if request.method == "POST":
-        
         username = request.POST["username"]
         password = request.POST["password"]
 
@@ -24,8 +22,21 @@ def home(request):
         else :
             messages.success(request, "Nesprávné jméno nebo heslo.")
             return redirect("home")
-    else: 
-        return render(request, "home.html", {"user_list" : user_list})
+            
+    return render(request, "home.html", {
+        "user_list" : user_list,
+        })
+
+def edit_user(request,pk):
+    user = User.objects.get(pk=pk)
+    form = UserForm(request.POST or None, request.FILES or None, instance=user)
+    if form.is_valid():
+        form.save()
+        return redirect("home")
+    
+    return render(request, "editUser.html", {
+        "form": form,
+    })
 
 def logout_user(request):
     logout(request)
