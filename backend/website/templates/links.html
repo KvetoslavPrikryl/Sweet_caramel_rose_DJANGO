@@ -7,8 +7,34 @@
 
 {% block content %}
     <div class="container">
-        <h2 class="h2-headline">Doporučujeme</h2>
+        <h2 class="h2-headline">Doporučuje</h2>
         <h1 class="logo-name">Sweet Caramel Rose</h1>
+
+        <section class="links">
+            {% for name in name_link %}
+                <h3 class="name-links">{{name}}</h3>
+                {% for link in links %}
+                    {% if link.name == name %}
+                        <a href="{{ link.link }}" target="_blank">{{link.text}}</a>
+                        {% if user.is_authenticated  %}
+                            <a href="{% url 'delete-link' link.id %}" class="delete-link"><button>Odstranit</button></a>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </section>
+
+        {% if user.is_authenticated  %}
+            <section>
+                <button class="btn">Vytvořit odkaz</button>
+                <form method="POST" class="form">
+                    {% csrf_token %}
+                    <h3>Název</h3>{{form.name}}
+                    <h3>Odkaz</h3>{{form.link}}
+                    <h3>Text k odkazu</h3>{{form.text}}
+                </form>
+            </section>
+        {% endif %}
 
     </div>
 

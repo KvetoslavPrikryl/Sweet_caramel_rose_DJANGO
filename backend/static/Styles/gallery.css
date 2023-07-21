@@ -6,7 +6,6 @@
     width: 500px;
     margin: 50px auto;
     font-size: 4rem;
-    text-align: center;
     text-shadow: 2px 2px 2px white ,5px 10px 7px rgb(0, 0, 0);
 }
 .gallery-show{
@@ -18,23 +17,17 @@
     width: 50%;
     background: rgba(78, 77, 77, 0.9);
     padding: 20px;
-    text-align: center;
     display: flex;
     flex-direction: column;
-}
-.form-text{
-    text-shadow: 2px 2px 2px black;
 }
 .gallery-images{
     display: flex;
     flex-direction: column;
 }
 .gallery-img{
-    position: relative;
     margin: 30px 10px;
 }
 .gallery-img-text{
-    position: absolute;
     background: white;
 }
 @media screen and (max-width:1400px){
@@ -45,6 +38,9 @@
 @media screen and (max-width:1000px){
     .container{
         padding: 0;
+    }
+    .gallery-show{
+        width:100%;
     }
 }
 @media screen and (max-width:640px){

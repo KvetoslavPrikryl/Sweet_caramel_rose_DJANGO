@@ -13,9 +13,9 @@
         <h1 class="gallery-title">Vytvořit galerii</h1>
         <form method="POST" enctype="multipart/form-data" class="form">
           {% csrf_token %}
-          <h3 class="form-text">Obrázek:</h3> <div class="input">{{form.image}}</div>
-          <h3 class="form-text">Text k obrázku:</h3> <div class="input">{{form.text}}</div>
-          <h3 class="form-text">Přidat ke službě:</h3> <div class="input">{{form.service}}</div><br/>
+          <h3>Obrázek:</h3>{{form.image}}
+          <h3>Text k obrázku:</h3>{{form.text}}
+          <h3>Přidat ke službě:</h3>{{form.service}}<br/>
           <input type="submit" value="Uložit" class="btn form-button">
         </form>
       </section>

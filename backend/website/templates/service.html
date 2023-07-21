@@ -25,8 +25,8 @@
                 <button class="btn create-service" id="create-service">Vytvořit novou službu</button>
                 <form action="{% url 'service' %}" method="POST" class="form service-form" id="service-form">
                     {% csrf_token %}
-                    <h3>Nézev:</h3> <div class="input">{{form.name}}</div><br/>
-                    <h3>Cena:</h3> <div class="input">{{form.price}}</div><br/>
+                    <h3>Nézev:</h3> {{form.name}}
+                    <h3>Cena:</h3> {{form.price}}<br/>
                     <input type="submit" value="Uložit" class="btn form-button">
                 </form>
             {% endif %}

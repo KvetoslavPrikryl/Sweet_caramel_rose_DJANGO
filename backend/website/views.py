@@ -169,20 +169,29 @@ def contact(request):
     })
 
 def links(request):
-    links = Link.objects.all()
     form = LinkForm
+    links = Link.objects.all()
+    name_link = []
+    submitted = False
+    for link in links:
+        if link.name in name_link:
+            continue
+        else:
+            name_link.append(link.name)
+
     if request.method == "POST":
-        form = LinkForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
+        formular = LinkForm(request.POST)
+        if formular.is_valid():
+            formular.save()
             return redirect("gallery")
         else:
-            form = LinkForm
+            formular = LinkForm
             if "submitted" in request.GET:
                 submitted = True
     return render(request, "links.html", {
         "links" : links,
-        "form" : form
+        "form" : form,
+        "name_link" : name_link
     })
 
 def delete_link(request, pk):
