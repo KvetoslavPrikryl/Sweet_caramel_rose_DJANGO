@@ -26,7 +26,7 @@
 
         {% if user.is_authenticated  %}
             <section>
-                <button class="btn">Vytvořit odkaz</button>
+                <button class="btn" id="create-link-button">Vytvořit odkaz</button>
                 <form method="POST" class="form">
                     {% csrf_token %}
                     <h3>Název</h3>{{form.name}}
