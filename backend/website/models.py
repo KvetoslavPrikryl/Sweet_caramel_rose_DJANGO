@@ -32,9 +32,8 @@ class Galery(models.Model):
     text = models.CharField(max_length=200)
     service = models.CharField(max_length=20)
 
-
 class Link(models.Model):
     name = models.CharField(max_length=50)
     link = models.URLField(null=True, blank=True)
-    text = models.CharField(max_length=200)
+    text = models.TextField(null=True, blank=True)
 

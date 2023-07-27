@@ -18,6 +18,8 @@ function gallery(){
         $(".gallery-buttons").css("display", "block")
         $(".admin-button-delete").css("display", "none")
         $(".service-name-active").css("display", "block")
+        $(".gallery-headline").css("display", "none")
+        $(".create-gallery").css("display", "none")
     });
 };
 
@@ -31,6 +33,8 @@ function close_gallery(){
         $(".gallery-service-name").css("display", "block")
         $(".admin-button-delete").css("display", "block")
         $(".service-name-active").css("display", "none")
+        $(".gallery-headline").css("display", "block")
+        $(".create-gallery").css("display", "block")
     })
 }
 

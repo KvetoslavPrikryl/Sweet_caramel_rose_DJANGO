@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login, logout
 from django.core.mail import send_mail
 from django.contrib import messages
-from .models import User, Service, Galery, Link, Dog
-from .form import ServiceForm, GalleryForm, ContactForm, LinkForm, DogForm, UserForm
+from .models import User, Service, Galery, Dog, Link
+from .form import ServiceForm, GalleryForm, ContactForm, DogForm, UserForm, LinkForm
 from django.http import HttpResponseRedirect
 from django.template.loader import render_to_string
 
@@ -183,11 +183,13 @@ def links(request):
         formular = LinkForm(request.POST)
         if formular.is_valid():
             formular.save()
-            return redirect("gallery")
+            return redirect("links")
         else:
             formular = LinkForm
+            messages.success(request, "Bohužel nastala chyba. Je formulář správně vyplněný?")
             if "submitted" in request.GET:
                 submitted = True
+
     return render(request, "links.html", {
         "links" : links,
         "form" : form,

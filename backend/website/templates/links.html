@@ -31,7 +31,8 @@
                     {% csrf_token %}
                     <h3>Název</h3>{{form.name}}
                     <h3>Odkaz</h3>{{form.link}}
-                    <h3>Text k odkazu</h3>{{form.text}}
+                    <h3>Text k odkazu</h3>{{form.text}} <br/>
+                    <input type="submit" value="Uložit" class="btn form-button">
                 </form>
             </section>
         {% endif %}

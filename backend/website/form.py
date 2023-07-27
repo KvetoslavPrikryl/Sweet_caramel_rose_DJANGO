@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import User, Service, Galery, Link, Dog
+from .models import User, Service, Galery, Dog, Link
 
 class UserForm(ModelForm):
     class Meta:
@@ -27,7 +27,7 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     text = forms.CharField(widget=forms.Textarea)
 
-class LinkForm(forms.Form):
+class LinkForm(ModelForm):
     class Meta:
         model = Link
         fields = "__all__"
