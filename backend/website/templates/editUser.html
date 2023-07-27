@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block styling %}
-    <link rel="stylesheet", href="{% static 'Styles/gallery.css' %}">
+
 {% endblock %}
 
 {% block content %}
   <div class="container">
     {% if user.is_authenticated %}
-    
+      <h1>Úprava profilu</h1>
       <section class="user-profile">
         <form method="POST" class="form" enctype="multipart/form-data">
             {% csrf_token%}

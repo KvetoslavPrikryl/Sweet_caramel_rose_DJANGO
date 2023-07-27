@@ -36,7 +36,7 @@
                             <div class="dog-admin">
                                 {% if user.is_authenticated %} 
                                     <a href="{% url 'update' dog.id %}" class="dog-edit-delete-button">Upravit</a>
-                                    <a href="{% url 'delete-dog' dog.id %}" class="dog-edit-delete-button">Odstranit</a>
+                                    <a href="{% url 'delete-dog' dog.id %}" class="dog-edit-delete-button right">Odstranit</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                 <div class="dog-admin">
                                     {% if user.is_authenticated %} 
                                         <a href="{% url 'update' dog.id %}" class="dog-edit-delete-button">Upravit</a>
-                                        <a href="{% url 'delete-dog' dog.id %}" class="dog-edit-delete-button">Odstranit</a>
+                                        <a href="{% url 'delete-dog' dog.id %}" class="dog-edit-delete-button right">Odstranit</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                 <div class="dog-admin">
                                     {% if user.is_authenticated %} 
                                         <a href="{% url 'update' dog.id %}" class="dog-edit-delete-button">Upravit</a>
-                                        <a href="{% url 'delete-dog' dog.id %}" class="dog-edit-delete-button">Odstranit</a>
+                                        <a href="{% url 'delete-dog' dog.id %}" class="dog-edit-delete-button right">Odstranit</a>
                                     {% endif %}
                                 </div>
                                 </div>
