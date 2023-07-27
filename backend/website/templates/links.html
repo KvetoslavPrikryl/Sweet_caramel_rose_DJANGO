@@ -3,6 +3,7 @@
 
 {% block styling %}
     <link rel="stylesheet", href="{% static 'Styles/links.css' %}">
+    <script src="{% static 'Scripts/link.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -27,7 +28,7 @@
         {% if user.is_authenticated  %}
             <section>
                 <button class="btn" id="create-link-button">Vytvořit odkaz</button>
-                <form method="POST" class="form">
+                <form method="POST" class="form form_link">
                     {% csrf_token %}
                     <h3>Název</h3>{{form.name}}
                     <h3>Odkaz</h3>{{form.link}}

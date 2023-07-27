@@ -21,3 +21,6 @@
 .delete-link{
     margin-bottom: 20px;
 }
+.form_link{
+    display: none;
+}

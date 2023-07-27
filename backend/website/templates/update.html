@@ -2,8 +2,10 @@
 {% load static %}
 
 {% block content %}
+<br/>
     <div class="container">
         {% if user.is_authenticated %}
+        <h1>Úpraha psa</h1>
         <form method="POST" class="form" enctype="multipart/form-data"> 
             {% csrf_token%}
             <h3>Jméno</h3>{{ form.name }}
