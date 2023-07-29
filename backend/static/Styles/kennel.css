@@ -38,8 +38,9 @@
 }
 .dog-img{
     width: 150px;
+    cursor: pointer;
 }
-.dog-img:hover{
+.dog-img-active{
     width: 250px;
 }
 .dog-edit-delete-button{
@@ -87,5 +88,10 @@
 @media screen and (max-width:550px){
     .container{
         margin-top: 75%;
+    }
+}
+@media screen and (max-width:390px){
+    .kennel{
+        margin-top: 110%;
     }
 }

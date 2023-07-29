@@ -1,6 +1,4 @@
-.container{
-    margin-right: 5%;
-}
+
 .services{
     margin: 17% 0 100px 0;
 }
@@ -152,5 +150,10 @@
     }
     .gallery{
         padding: 5% 5%;
+    }
+}
+@media screen and (max-width:390px){
+    .services{
+        margin-top: 100%;
     }
 }

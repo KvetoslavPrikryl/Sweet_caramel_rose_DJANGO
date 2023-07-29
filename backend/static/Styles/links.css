@@ -17,10 +17,19 @@
 }
 .name-links{
     font-size: 2rem;
+    margin-bottom: 10px;
 }
 .delete-link{
     margin-bottom: 20px;
 }
 .form_link{
     display: none;
+}
+.one-link{
+    margin-bottom: 15px;
+}
+@media screen and (max-width:390px){
+    .links{
+        margin-top: 120%;
+    }
 }

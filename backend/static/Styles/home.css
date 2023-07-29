@@ -66,3 +66,8 @@
         width: 90%;
     }
 }
+@media screen and (max-width:390px){
+    .user_block{
+        padding: 20px 10px;
+    }
+}
