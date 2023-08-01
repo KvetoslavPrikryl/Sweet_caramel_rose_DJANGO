@@ -8,7 +8,6 @@ function hamburger(){
             $(".nav-active").addClass("nav").removeClass("nav-active")
             $(".navbar-active").addClass("navbar").removeClass("navbar-active")
         }
-        
     })
 };
 
@@ -55,8 +54,7 @@ function create_dog(){
 }
 function dog_img(){
     $(".dog-img").click(function(){
-        $(".dog-img").removeClass("dog-img-active")
-        $(this).addClass("dog-img-active")
+        $(this).toggleClass("dog-img-active")
     })
 }
 

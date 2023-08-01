@@ -14,40 +14,38 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div class="image-base">
     
-        {% if user.is_authenticated %}
-            <header>
-                <h3 class="admin_user">Jsi přihlášena</h3>
-                <a class="logout" href="{% url 'logout'%}">Odhlásit</a>
-            </header>
-        {% endif %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="backend-message">{{message}}</div>
-            {% endfor %}
-        {% endif %}
-        
-        <div class="body-container">
-            <main>
+    {% if user.is_authenticated %}
+        <header>
+            <h3 class="admin_user">Jsi přihlášena</h3>
+            <a class="logout" href="{% url 'logout'%}">Odhlásit</a>
+        </header>
+    {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="backend-message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
+            
+    <div class="body-container">
+        <main>
 
-                {% block content %}
-                        
-                {% endblock %}
-            </main>
-            <nav class="navbar">
-                <ul class="nav">
-                    <li><a href="{% url 'home' %}"><button class="btn">Domů</button></a></li>
-                    <li><a href="{% url 'kennel' %}"><button class="btn">Chovatelská stanice</button></a></li>
-                    <li><a href="{% url 'service' %}"><button class="btn">Služby</button></a></li>
-                    <li><a href="{% url 'links' %}"><button class="btn">Doporučujeme</button></a></li>
-                    <li><a href="{% url 'contact' %}"><button class="btn">Kontakt</button></a></li>
-                </ul>
-                <button class="hamburger" id="hamburger"><img src="../static/IMG/menu.png" width="30"></button>
-            </nav>
-        </div>
-        
+            {% block content %}
+                            
+            {% endblock %}
+        </main>
+        <nav class="navbar">
+            <ul class="nav">
+                <li><a href="{% url 'home' %}"><button class="btn">Domů</button></a></li>
+                <li><a href="{% url 'kennel' %}"><button class="btn">Chovatelská stanice</button></a></li>
+                <li><a href="{% url 'service' %}"><button class="btn">Služby</button></a></li>
+                <li><a href="{% url 'links' %}"><button class="btn">Doporučujeme</button></a></li>
+                <li><a href="{% url 'contact' %}"><button class="btn">Kontakt</button></a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><img src="../static/IMG/menu.png" width="30"></button>
+        </nav>
     </div>
+        
     
     <footer>
 

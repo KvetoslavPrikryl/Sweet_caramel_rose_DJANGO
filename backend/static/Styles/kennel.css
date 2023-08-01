@@ -36,6 +36,17 @@
     padding:10px;
     margin-bottom: 10px;
 }
+tr{
+    position: relative;
+}
+.td-text{
+    padding-left: 20px;
+}
+.first-td{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .dog-img{
     width: 150px;
     cursor: pointer;
@@ -66,6 +77,11 @@
 }
 #dog-pup{
     display: none;
+}
+@media screen and (max-width:1400px){
+    .container{
+        width: 75%;
+    }
 }
 @media screen and (max-width:1000px){
     .container{

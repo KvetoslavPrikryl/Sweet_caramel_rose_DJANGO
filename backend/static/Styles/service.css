@@ -5,7 +5,8 @@
 .one-service{
     position: relative;
     display: flex;
-    background: linear-gradient(135deg, rgba(231,110,46,0.3) 80%, white);
+    background: linear-gradient(135deg, rgba(231,110,46,0.3) 70%, white);
+    transition: 1s;
     border-radius: 50px;
     font-size: 1.1rem;
     margin: 5px;
@@ -15,11 +16,14 @@
     box-shadow: 2px 2px 7px black;
 }
 .one-service:hover{
-    background: linear-gradient(135deg, rgba(231,110,46,0.3) 20%, white);
+    background: rgba(255, 255, 255, 0.8) var(--_p,80%)/200%;
+    .service-name{
+        text-shadow: 0 0 1px black;
+    }
 }
 .service-name{
     margin: 0.2%;
-    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    text-shadow: 0 0 5px rgb(0, 0, 0);
 }
 .price{
     position: absolute;
@@ -135,6 +139,11 @@
     position: absolute;
     top: 45%;
     right: 5%;
+}
+@media screen and (max-width:1400px){
+    .container{
+        width: 75%;
+    }
 }
 @media screen and (max-width:1000px){
     .container{

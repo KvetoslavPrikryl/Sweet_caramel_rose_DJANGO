@@ -17,11 +17,29 @@
                         <div class="one-dog">
                             <h2 class="dog-name">{{dog.name}}</h2>
                             <div class="dog-text">
-                                <p>Barva: {{dog.color}}</p>
-                                <p>Váha: {{dog.weight}} kg</p>
-                                <p>Výška: {{dog.height}} cm</p>
-                                <p>Patel: {{dog.patel}}</p>
-                                <p>Ocenění: {{dog.body}}</p>
+                                <table>
+                                  <tr>
+                                    <td>Barva:</td>
+                                    <td class="td-text">{{dog.color}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Váha:</td>
+                                    <td class="td-text">{{dog.weight}} kg</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Výška:</td>
+                                    <td class="td-text">{{dog.height}} cm</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="first-td">Patel:</td>
+                                    <td class="td-text">{{dog.patel}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="first-td">Ocenění:</td>
+                                    <td class="td-text">{{dog.body}}</td>
+                                  </tr>
+                                </table>
+                               
                             </div>
                             {% if dog.image1 %}
                                 <img src="{{dog.image1.url}}" class="dog-img">
@@ -49,11 +67,28 @@
                             <div class="one-dog">
                                 <h2 class="dog-name">{{dog.name}}</h2>
                                 <div class="dog-text">
-                                    <p>Barva: {{dog.color}}</p>
-                                    <p>Váha: {{dog.weight}} kg</p>
-                                    <p>Výška: {{dog.height}} cm</p>
-                                    <p>Patel: {{dog.patel}}</p>
-                                    <p>Ocenění: {{dog.body}}</p>
+                                    <table>
+                                        <tr>
+                                          <td>Barva:</td>
+                                          <td class="td-text">{{dog.color}}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Váha:</td>
+                                          <td class="td-text">{{dog.weight}} kg</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Výška:</td>
+                                          <td class="td-text">{{dog.height}} cm</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="first-td">Patel:</td>
+                                          <td class="td-text">{{dog.patel}}</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="first-td">Ocenění:</td>
+                                          <td class="td-text">{{dog.body}}</td>
+                                        </tr>
+                                      </table>
                                 </div>
                                 {% if dog.image1 %}
                                     <img src="{{dog.image1.url}}" class="dog-img">
@@ -82,10 +117,28 @@
                                 <h2 class="dog-name">{{dog.name}}</h2>
                                 <div class="dog-text">
                                     <p>Barva: {{dog.color}}</p>
-                                    <p>Váha: {{dog.weight}} kg</p>
-                                    <p>Výška: {{dog.height}} cm</p>
-                                    <p>Patel: {{dog.patel}}</p>
-                                    <p>Ocenění: {{dog.body}}</p>
+                                    <table>
+                                        <tr>
+                                          <td>Barva:</td>
+                                          <td class="td-text">{{dog.color}}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Váha:</td>
+                                          <td class="td-text">{{dog.weight}} kg</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Výška:</td>
+                                          <td class="td-text">{{dog.height}} cm</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="first-td">Patel:</td>
+                                          <td class="td-text">{{dog.patel}}</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="first-td">Ocenění:</td>
+                                          <td class="td-text">{{dog.body}}</td>
+                                        </tr>
+                                      </table>
                                 </div>
                                 
                                 {% if dog.image1 %}

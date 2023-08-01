@@ -15,7 +15,7 @@
                 <h3 class="name-links">{{name}}</h3>
                 {% for link in links %}
                     {% if link.name == name %}
-                        <a href="{{ link.link }}" target="_blank" class="one-link">{{link.text}}</a>
+                        <a href="{{ link.link }}" target="_blank" class="one-link"><b>{{link.text}}</b></a>
                         {% if user.is_authenticated  %}
                             <a href="{% url 'delete-link' link.id %}" class="delete-link"><button>Odstranit</button></a>
                         {% endif %}
