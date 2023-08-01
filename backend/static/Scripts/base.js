@@ -12,7 +12,7 @@ function hamburger(){
 };
 
 function toggle(some){
-    $(some).toggle()
+    $(some).toggle("slow");
 }
 
 /**** Home ****/
