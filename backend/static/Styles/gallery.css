@@ -9,7 +9,6 @@
     text-shadow: 2px 2px 2px white ,5px 10px 7px rgb(0, 0, 0);
 }
 .gallery-show{
-    width: 80%;
     margin-left: auto;
 }
 .gallery-form{
@@ -29,6 +28,7 @@
 }
 .gallery-img-text{
     background: white;
+    font-size: 1.2rem;
 }
 @media screen and (max-width:1400px){
     .container{

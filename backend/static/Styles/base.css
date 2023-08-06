@@ -101,11 +101,15 @@ header{
     background: rgba(231,110,46,255);
     text-align: center;
     margin-bottom: 50px;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid black;
+    color:#291814;
     border-radius:5px ;
     cursor: pointer;
     font-size: 1.1rem;
+    box-shadow: 2px 2px 7px black;
+  }
+  .btn-active{
+    box-shadow: 2px 2px 7px white;
   }
 
 /* Main */
@@ -158,7 +162,7 @@ main{
 /* Footer */
 
 .footer-container{
-    background: rgb(0, 0, 0);
+    background: #402E32;
     color: rgba(231,110,46,255);
     width:100%;
     display: grid;

@@ -23,9 +23,11 @@ class GalleryForm(ModelForm):
         fields = "__all__"
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=30)
-    email = forms.EmailField()
-    text = forms.CharField(widget=forms.Textarea)
+    name = forms.CharField(widget=forms.TextInput(attrs={'class': 'contact-input'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'contact-input'}))
+    text = forms.CharField(widget=forms.Textarea(attrs={'class': 'contact-textarea'}))
+
+
 
 class LinkForm(ModelForm):
     class Meta:

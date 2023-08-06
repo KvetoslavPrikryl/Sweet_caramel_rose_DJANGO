@@ -16,7 +16,7 @@
     box-shadow: 2px 2px 7px black;
 }
 .one-service:hover{
-    background: rgba(255, 255, 255, 0.8) var(--_p,80%)/200%;
+    background: #FFD38D;
     .service-name{
         text-shadow: 0 0 1px black;
     }
@@ -44,7 +44,7 @@
     display: none;
 }
 .gallery-headline{
-    background: rgba(255, 255, 255, 0.4);
+    background: #ffd38da1;
     text-shadow: 2px 2px 2px black;
     font-size: 3rem;
     text-align: center;
@@ -152,13 +152,14 @@
 }
 @media screen and (max-width:640px){
     .services{
-        margin: 40% 0 100px 0;
+        margin: 50% 0 100px 0;
     }
     .gallery-images{
         flex-direction: column;
     }
     .gallery{
         padding: 5% 5%;
+        text-align: center;
     }
 }
 @media screen and (max-width:390px){

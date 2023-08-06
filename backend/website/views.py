@@ -30,6 +30,11 @@ def home(request):
 def edit_user(request,pk):
     user = User.objects.get(pk=pk)
     form = UserForm(request.POST or None, request.FILES or None, instance=user)
+    try:
+        if request.FILES["image"]:
+            user.image.delete(save=False)
+    except:
+        pass
     if form.is_valid():
         form.save()
         return redirect("home")
@@ -80,8 +85,17 @@ def kennel(request):
 
 def dog(request, pk):
     dog = Dog.objects.get(pk=pk)
-    form = DogForm(request.POST or None, instance=dog)
+    form = DogForm(request.POST or None, request.FILES or None, instance=dog)
+    print("Před try:", request.FILES)
+    if request.FILES["image1"] or dog.image2 or dog.image3:
+        if request.FILES["image1"]:
+            dog.image1.delete(save=False)
+        elif request.FIELS["image2"]:
+            dog.image2.delete(save=False)
+        elif request.FIELS["image3"]:
+            dog.image3.delete(save=False)
     if form.is_valid():
+        print("Po try:", request.FILES)
         form.save()
         return redirect("kennel")
     return render(request, "update.html", {
@@ -90,7 +104,14 @@ def dog(request, pk):
 
 def delete_dog(request, pk):
     dog = Dog.objects.get(pk=pk)
-    dog.delete()
+    try:
+        dog.image1.delete(save=False)
+        dog.image2.delete(save=False)
+        dog.image3.delete(save=False)
+        dog.delete()
+    except:
+        pass
+    
     return redirect("kennel")
 
 def service(request):
@@ -141,7 +162,11 @@ def delete_service(request, pk):
 
 def delete_img(request, pk):
     image = Galery.objects.get(pk=pk)
-    image.delete()
+    try: 
+        image.image.delete(save=False)
+        image.delete()
+    except:
+        pass
     return redirect("service")
 
 def contact(request):
