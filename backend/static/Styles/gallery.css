@@ -10,6 +10,8 @@
 }
 .gallery-show{
     margin-left: auto;
+    background: linear-gradient(135deg, rgba(255, 255, 255,0.9), rgba(231,110,46, 0.9));
+    border-radius: 25px;
 }
 .gallery-form{
     margin: 20px auto;

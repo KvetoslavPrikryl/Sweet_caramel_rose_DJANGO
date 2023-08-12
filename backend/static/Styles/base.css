@@ -159,6 +159,11 @@ main{
     float: right;
     margin-right: 5%;
 }
+.form-label{
+    display: block;
+    font-size: 1.5rem;
+    color: rgb(231,110,46);
+}
 /* Footer */
 
 .footer-container{

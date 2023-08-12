@@ -151,6 +151,9 @@
     }
 }
 @media screen and (max-width:640px){
+    .container{
+        width: 100%;
+    }
     .services{
         margin: 50% 0 100px 0;
     }

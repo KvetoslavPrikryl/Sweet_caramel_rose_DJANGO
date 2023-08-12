@@ -86,16 +86,16 @@ def kennel(request):
 def dog(request, pk):
     dog = Dog.objects.get(pk=pk)
     form = DogForm(request.POST or None, request.FILES or None, instance=dog)
-    print("Před try:", request.FILES)
-    if request.FILES["image1"] or dog.image2 or dog.image3:
+    try:
         if request.FILES["image1"]:
             dog.image1.delete(save=False)
-        elif request.FIELS["image2"]:
+        elif request.FILES["image2"]:
             dog.image2.delete(save=False)
-        elif request.FIELS["image3"]:
+        elif request.FILES["image3"]:
             dog.image3.delete(save=False)
+    except:
+        pass
     if form.is_valid():
-        print("Po try:", request.FILES)
         form.save()
         return redirect("kennel")
     return render(request, "update.html", {

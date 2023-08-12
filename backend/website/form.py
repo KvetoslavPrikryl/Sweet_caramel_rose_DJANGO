@@ -11,7 +11,18 @@ class DogForm(ModelForm):
     class Meta:
         model = Dog
         fields = "__all__"
-
+        labels = {
+            "name" : "Jméno",
+            "color" : "Barva",
+            "weight" : "Váha",
+            "height" : "Výška",
+            "patel" : "Patel",
+            "body" : "Text ke psovi",
+            "dog_sex" : "Pohlaví psa",
+            "image1": "Obrázek 1",
+            "image2" : "Obrázek 2",
+            "image3" : "Obrázek 3"
+        }
 class ServiceForm(ModelForm):
     class Meta:
         model = Service

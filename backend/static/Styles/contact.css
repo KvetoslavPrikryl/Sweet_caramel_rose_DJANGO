@@ -12,11 +12,14 @@
     outline: none;
     text-align: center;
     color: #291814;
+    transition: linear 0.3s;
 }
 .contact-input:valid,
 .contact-input:focus{
     border-bottom: 1px solid white;
     font-size: 1.2rem;
+    background: rgb(231,110,46);
+    border-radius: 20px;
 }
 .contact-textarea{
     border: 1px solid rgb(231,110,46);
@@ -24,11 +27,14 @@
     outline: none;
     color: #291814;
     padding: 10px 20px;
+    transition: linear 0.3s;
 }
 .contact-textarea:valid,
 .contact-textarea:focus{
     border: 1px solid white;
     font-size: 1.1rem;
+    background: rgb(231,110,46);
+    border-radius: 20px;
 }
 @media screen and (max-width:800px){
     .container{
@@ -36,6 +42,6 @@
     }
     .contact-textarea:valid,
     .contact-textarea:focus{
-    font-size: 1rem;
+    font-size: 13px;
 }
 }
