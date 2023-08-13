@@ -39,6 +39,7 @@
 @media screen and (max-width:800px){
     .container{
         margin: 75% 0 100px 0;
+        width: 100%;
     }
     .contact-textarea:valid,
     .contact-textarea:focus{

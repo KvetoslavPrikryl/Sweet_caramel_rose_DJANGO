@@ -96,6 +96,7 @@ tr{
 @media screen and (max-width:550px){
     .container{
         margin-top: 75%;
+        width: 100%;
     }
 }
 @media screen and (max-width:390px){

@@ -3,7 +3,7 @@
     width: 100%;
 }
 .gallery-title{
-    width: 500px;
+    width: 100%;
     margin: 50px auto;
     font-size: 4rem;
     text-shadow: 2px 2px 2px white ,5px 10px 7px rgb(0, 0, 0);
@@ -48,8 +48,5 @@
 @media screen and (max-width:640px){
     .gallery-form{
         width: 90%;
-    }
-    .gallery-title{
-        width: 400px;
     }
 }
